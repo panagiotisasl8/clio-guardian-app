@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="el"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0f12"><meta name="description" content="Clio dCi RS Telemetry & Guardian. GPS ταμπλό, στάθμευση, εκτίμηση diesel και τοπικές υπενθυμίσεις συντήρησης.">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Clio RS"><meta name="mobile-web-app-capable" content="yes"><meta name="referrer" content="no-referrer">
+<title>Clio dCi RS Telemetry &amp; Guardian</title>
+<link id="app-manifest" rel="manifest"><link id="app-icon" rel="icon"><link id="apple-icon" rel="apple-touch-icon">
+<style>
+:root{color-scheme:dark;--bg:#0d0f12;--panel:#15181e;--panel2:#1c2027;--line:#30343d;--text:#f5f5f0;--muted:#b8bcc5;--accent:#fff200;--amber:#ffae46;--red:#ff8790;--mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;--sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{min-height:100%;background:var(--bg);scroll-behavior:smooth}body{margin:0;font-family:var(--sans);color:var(--text);font-size:16px;line-height:1.5;padding:0 0 calc(112px + env(safe-area-inset-bottom));background:radial-gradient(ellipse at 15% 0%,#fff20008,transparent 45%),var(--bg)}button,input,select{font:inherit}button,a,input,summary{ -webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}a{color:inherit}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}button{border:0}svg{display:block}.icon{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}[hidden]{display:none!important}.shell{max-width:1240px;margin:auto;padding:30px 32px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:30px}.brand{display:flex;gap:13px;align-items:center}.brand-mark{width:48px;height:48px;color:var(--accent);background:#292817;border:1px solid #595628;border-radius:15px;display:grid;place-items:center}.brand-mark svg{width:30px;height:30px}.brand h1{font-size:23px;line-height:1;margin:0;letter-spacing:3px;font-weight:800}.brand p{font-family:var(--mono);letter-spacing:2.6px;font-size:10px;color:var(--muted);margin:8px 0 0}.top-right{display:flex;align-items:center;gap:20px}.clock{text-align:right}.clock time{font-family:var(--mono);font-size:21px;letter-spacing:1px}.clock p{font-size:12px;color:var(--muted);margin:1px 0 0}.icon-button{width:48px;height:48px;display:grid;place-items:center;background:var(--panel);border:1px solid var(--line);border-radius:50%;color:var(--text)}.eyebrow{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;color:var(--muted)}.vehicle-line{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:16px}.vehicle-tag{font-size:12px;letter-spacing:1px;color:var(--muted)}.vehicle-tag strong{color:var(--text);font-weight:600}.live-dot{height:7px;width:7px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:7px}.small-status{font-size:12px;color:var(--accent);white-space:nowrap}.dashboard{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(305px,1fr);gap:20px}.left-column,.right-column{display:grid;align-content:start;gap:18px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden}.speed-panel{padding:22px 25px 19px;position:relative}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.gps-chip{display:flex;gap:7px;align-items:center;font:11px var(--mono);color:var(--muted)}.gps-chip .icon{width:15px;height:15px}.speed-stage{position:relative;min-height:265px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:32px}.gauge{position:absolute;inset:0;max-width:470px;width:100%;height:100%;margin:auto;pointer-events:none}.gauge-track{fill:none;stroke:#32353c;stroke-width:7;stroke-linecap:round}.gauge-active{fill:none;stroke:var(--accent);stroke-width:7;stroke-linecap:round;stroke-dasharray:0 100;transition:stroke-dasharray .4s}.gauge-ticks{stroke:#62656c;stroke-width:1.5}.speed-number{font-size:clamp(92px,10vw,136px);font-weight:650;line-height:1.02;letter-spacing:-7px;font-variant-numeric:tabular-nums;z-index:1}.speed-unit{font-size:13px;letter-spacing:3px;color:var(--muted);margin-top:9px}.speed-source{font-size:11px;color:var(--muted);margin-top:8px;min-height:17px}.journey-status{border-top:1px solid var(--line);padding-top:17px;display:flex;align-items:center;gap:13px}.status-orb{width:35px;height:35px;border-radius:50%;background:#33311a;display:grid;place-items:center;color:var(--accent);flex:none}.status-orb .icon{width:18px;height:18px}.status-copy{flex:1;min-width:0}.status-copy strong{display:block;font-size:16px;font-weight:600}.status-copy p{margin:2px 0 0;color:var(--muted);font-size:12px}.subtle-btn{color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:12px;min-height:44px;padding:8px 13px;font-size:13px}.parking-progress{height:3px;background:#30343d;margin-top:16px;border-radius:9px;overflow:hidden}.parking-progress div{height:100%;width:0;background:var(--accent);transition:width .6s}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.metric{padding:21px 23px}.metric-top{display:flex;gap:9px;align-items:center;color:var(--muted);font-size:12px}.metric-top .icon{width:19px;height:19px}.metric-value{margin-top:12px;font:500 35px var(--mono);letter-spacing:-1px;white-space:nowrap}.metric-value small{font:13px var(--sans);letter-spacing:0;color:var(--muted);margin-left:7px}.metric-bottom{font-size:11px;color:var(--muted);margin-top:9px}.parking-card{padding:21px 23px;display:flex;align-items:center;gap:18px}.parking-symbol{width:64px;height:64px;flex:none;display:grid;place-items:center;border:1px solid #5f5924;border-radius:18px;background:#28271a;color:var(--accent);font:500 29px var(--mono)}.parking-info{flex:1;min-width:0}.parking-info h2{font-size:16px;font-weight:600;margin:0 0 4px}.parking-info p{color:var(--muted);font-size:12px;margin:3px 0;overflow-wrap:anywhere}.parking-info .coords{font:11px var(--mono);margin-top:7px}.text-btn{background:transparent;color:var(--accent);font-size:12px;padding:8px 0;min-height:38px}.service-panel{padding:22px 23px}.section-title{font-size:17px;margin:0;font-weight:600}.service-panel .panel-head{margin-bottom:24px}.odo-label{font-size:12px;color:var(--muted)}.odo-value{font:500 32px var(--mono);letter-spacing:.5px;margin:7px 0 6px;white-space:nowrap}.odo-value small{font:12px var(--sans);letter-spacing:0;color:var(--muted)}.odo-help{font-size:11px;color:var(--muted);margin:0 0 22px}.service-item{padding-top:19px;border-top:1px solid var(--line);margin-top:18px}.service-item .line{display:flex;justify-content:space-between;gap:10px;align-items:center}.service-item h3{font-size:13px;font-weight:500;margin:0}.service-item strong{font:500 14px var(--mono);color:var(--accent);white-space:nowrap}.service-item p{font-size:11px;color:var(--muted);margin:7px 0 0}.bar{height:4px;background:#30343d;border-radius:5px;margin-top:12px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--accent)}.dates-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.date-tile{border:1px solid var(--line);border-radius:13px;padding:13px 12px}.date-tile span{display:block;color:var(--muted);font-size:11px}.date-tile strong{display:block;font-size:16px;margin-top:8px}.date-tile small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.health-panel{padding:18px 23px}.health-panel h2{margin:0 0 14px;font-size:12px;color:var(--muted);font-weight:500}.health-row{display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:6px 0;gap:12px}.health-row span:last-child{text-align:right;color:var(--accent);font-size:11px}.hint{font-size:11px;line-height:1.65;color:var(--muted);margin:15px 0 0}.notice{display:flex;gap:11px;align-items:flex-start;padding:14px 17px;border:1px solid #705636;background:#2a2419;border-radius:15px;color:var(--amber);font-size:13px;margin-bottom:17px}.notice p{margin:0;flex:1}.notice .icon{width:19px;height:19px}.notice button{color:var(--amber);background:transparent;text-decoration:underline;min-height:32px;padding:0}.danger{color:var(--red)!important}.warning{color:var(--amber)!important}.bottom-dock{position:fixed;z-index:10;left:0;right:0;bottom:0;background:#0d0f12f5;border-top:1px solid var(--line);padding:15px 24px calc(15px + env(safe-area-inset-bottom));backdrop-filter:blur(16px)}.dock-inner{max-width:1176px;margin:auto;display:grid;grid-template-columns:1fr 174px;gap:14px}.locate-btn{min-height:62px;display:flex;align-items:center;justify-content:center;gap:13px;border-radius:17px;background:var(--accent);color:#101115;font-size:18px;font-weight:750;text-decoration:none;border:1px solid var(--accent)}.locate-btn .icon{width:25px;height:25px}.sos-btn{display:flex;align-items:center;justify-content:center;gap:9px;min-height:62px;background:#371f20;color:#ffc5c0;border:1px solid #714344;border-radius:17px;text-decoration:none;font-size:17px;font-weight:700}.sos-btn small{font-size:12px;font-weight:400;display:block;line-height:1.1}.footer-note{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin:21px 1px 0;gap:14px}.footer-note span:last-child{text-align:right}.toast{position:fixed;bottom:calc(110px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:40;width:max-content;max-width:calc(100% - 32px);background:#25271d;color:var(--text);border:1px solid #5d602c;box-shadow:0 10px 35px #0007;border-radius:15px;padding:14px 20px;font-size:14px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}dialog{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:24px;padding:0;max-width:590px;width:calc(100% - 28px);max-height:88dvh;box-shadow:0 25px 90px #0009}dialog::backdrop{background:#000a;backdrop-filter:blur(3px)}.dialog-head{padding:22px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:1}.dialog-head h2{font-size:19px;margin:0}.dialog-body{padding:22px 24px}.dialog-body h3{font-size:15px;margin:24px 0 12px}.dialog-body h3:first-child{margin-top:0}.dialog-body p,.dialog-body li{font-size:13px;color:var(--muted);line-height:1.7}.dialog-body ul,.dialog-body ol{padding-left:20px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:7px;font-size:12px;color:var(--muted)}.field.wide{grid-column:1/-1}.field input{width:100%;min-height:48px;border:1px solid #454b55;background:var(--panel);color:var(--text);border-radius:10px;padding:11px 12px;font-size:16px}.field small{font-size:11px}.check{display:flex;align-items:center;gap:12px;font-size:14px;min-height:48px}.check input{height:23px;width:23px;accent-color:var(--accent)}.button-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.primary,.secondary{min-height:47px;padding:11px 17px;border-radius:12px;font-weight:600;font-size:14px}.primary{background:var(--accent);color:#101115}.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.form-error{font-size:13px;color:var(--red);min-height:20px}.details-group{border-top:1px solid var(--line);margin-top:22px;padding-top:17px}.details-group summary{cursor:pointer;min-height:42px;display:flex;align-items:center;justify-content:space-between;font-size:14px;list-style:none}.details-group summary::after{content:"+";color:var(--accent);font-size:24px}.details-group[open] summary::after{content:"−"}.trip-row{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:13px 0;gap:15px;font-size:13px}.trip-row small{display:block;color:var(--muted);margin-top:3px}.trip-row strong{font-family:var(--mono);white-space:nowrap}.small-code{font-family:var(--mono);font-size:12px;background:var(--panel);padding:12px;border-radius:9px;overflow-wrap:anywhere}.install-status{color:var(--accent)!important}.form-note{border-left:2px solid var(--accent);padding-left:12px}.move-locked{opacity:.65}.app-state-line{min-height:20px}body.driving #settings-button{opacity:.55}
+@media(min-width:1100px){.speed-stage{min-height:285px}.shell{padding-top:38px}.speed-panel{padding:24px 29px 22px}.service-panel{padding:25px 27px}}
+@media(max-width:760px){.shell{padding:22px 18px}.topbar{margin-bottom:24px}.top-right{gap:12px}.brand h1{font-size:20px}.brand-mark{width:42px;height:42px;border-radius:13px}.clock time{font-size:17px}.clock p{font-size:10px}.icon-button{width:43px;height:43px}.dashboard{grid-template-columns:1fr;gap:18px}.speed-stage{min-height:246px}.speed-number{font-size:110px}.vehicle-tag{font-size:10px}.small-status{font-size:10px}.vehicle-line{gap:6px}.speed-panel{padding:19px 19px 18px}.metric{padding:17px 18px}.metric-value{font-size:30px}.right-column{gap:18px}.dates-grid{margin-top:19px}.bottom-dock{padding-left:16px;padding-right:16px}.dock-inner{grid-template-columns:1fr 93px;gap:10px}.locate-btn{font-size:15px;gap:9px}.sos-btn{font-size:16px;gap:7px}.sos-btn .icon{width:20px;height:20px}.sos-btn small{font-size:10px}.footer-note{font-size:10px}.parking-card{padding:18px}.parking-symbol{width:55px;height:55px}.toast{font-size:13px}.form-grid{gap:14px}.dialog-body{padding:19px}.dialog-head{padding:18px}.metric-top{font-size:11px}.metric-grid{gap:12px}}
+@media(max-width:355px){.clock{display:none}.brand p{font-size:9px}.shell{padding:18px 13px}.metric-value{font-size:27px}.form-grid{grid-template-columns:1fr}.dock-inner{grid-template-columns:1fr 82px}.locate-btn{font-size:13px}}
+@media(max-height:550px) and (orientation:landscape){.shell{padding-top:16px}.topbar{margin-bottom:14px}.dashboard{grid-template-columns:minmax(0,1.3fr) minmax(270px,1fr)}.speed-stage{min-height:200px}.speed-number{font-size:90px}.clock p{display:none}.bottom-dock{padding-top:9px;padding-bottom:calc(9px + env(safe-area-inset-bottom))}.locate-btn,.sos-btn{min-height:49px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Renault Sport-inspired palette. All visual assets remain local. */
+body{font-family:var(--mono);background:radial-gradient(ellipse at 20% 0%,#fff20008,transparent 35%),var(--bg)}
+.brand-mark{border-radius:10px;transform:skew(-8deg);font:900 18px var(--mono);letter-spacing:-1px;background:var(--accent);color:#101115;border:0}
+.brand h1{letter-spacing:1px;font-style:italic;font-weight:900}.brand h1 em{color:var(--accent);font-size:.65em}.brand p{font-size:9px;letter-spacing:1.65px}.brand small{font-size:10px;color:var(--muted)}
+.panel{border-radius:18px}.speed-panel{background:linear-gradient(135deg,#1c2025 25%,transparent 25%) 0 0/8px 8px,linear-gradient(315deg,#1c2025 25%,transparent 25%) 0 0/8px 8px,#15181d}.speed-panel::before{content:'';position:absolute;inset:0;background:linear-gradient(#15181d77,#15181dfb 70%);pointer-events:none}.speed-panel>*{position:relative}.speed-panel .gauge{position:absolute}
+.speed-number{font-family:var(--mono);font-weight:800;font-style:italic;letter-spacing:-9px;text-shadow:0 0 45px #fff2000b}.speed-stage{min-height:285px}.speed-source{font-family:var(--sans);font-size:12px}.speed-unit{font-weight:700}.gauge-active{stroke:var(--accent);stroke-width:9}.eyebrow{font-size:10px}.section-title{font-family:var(--sans);font-weight:700}.metric-value{font-weight:700}.metric-top,.hint,.status-copy,.notice,.dialog-body,.parking-info,.date-tile,.service-item,.health-row{font-family:var(--sans)}.status-copy p{font-size:12px}.status-copy strong{font-size:15px}.vehicle-tag{font-size:11px}.small-status{font-size:10px}.trip-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;border-top:1px solid var(--line);padding:17px 0 1px;margin-top:13px}.trip-stats span{font-size:10px;color:var(--muted);display:block}.trip-stats strong{display:block;font-size:21px;margin-top:4px;white-space:nowrap}.trip-stats small{font-size:10px;color:var(--muted);font-weight:400}.sensor-panel{padding:20px 23px}.sensor-body{display:grid;grid-template-columns:155px 1fr;align-items:center;gap:20px}.g-plot{width:155px;height:155px}.g-plot .ring{fill:none;stroke:#444a55;stroke-width:1}.g-plot .axis{stroke:#444a55;stroke-dasharray:3 4}.g-plot text{fill:var(--muted);font:8px var(--mono)}.g-dot{fill:var(--accent);filter:drop-shadow(0 0 4px #fff20066)}.g-values{display:grid;grid-template-columns:1fr 1fr;gap:8px}.g-values strong{display:block;font-size:22px}.g-values span{font-size:10px;color:var(--muted)}.g-status{font-family:var(--sans);font-size:12px;color:var(--muted);margin:12px 0 0;min-height:35px}.guardian-panel{padding:20px 23px}.guardian-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.chip{font:10px var(--mono);color:var(--accent);border:1px solid #57532c;padding:5px 8px;border-radius:6px;white-space:nowrap}.guardian-title{font-size:16px;margin:16px 0 7px}.guardian-copy{font-family:var(--sans);font-size:12px;line-height:1.6;color:var(--muted);margin:0}.dpf-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:16px 0}.dpf-steps i{height:5px;background:#343842;border-radius:4px}.dpf-steps i.on{background:var(--accent)}.guardian-panel.attention{border-color:#a45f2b}.guardian-panel.attention .chip{color:var(--amber);border-color:#a45f2b}.guardian-panel.attention .dpf-steps i.on{background:var(--amber)}.turbo-panel{padding:16px 22px;border-color:#ac7234;background:#292117}.turbo-content{display:flex;align-items:center;gap:18px}.turbo-count{font:800 48px var(--mono);color:var(--amber);line-height:1}.turbo-copy strong{font:700 14px var(--sans)}.turbo-copy p{font:12px/1.6 var(--sans);color:var(--muted);margin:5px 0 0}.fuel-strip{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);margin-top:15px;padding-top:14px}.fuel-strip strong{font-size:22px}.fuel-strip small{display:block;font:11px var(--sans);color:var(--muted);margin-top:3px}.fuel-caption{font:11px/1.5 var(--sans);color:var(--muted);margin:12px 0 0}.field select{background:var(--panel);color:var(--text);border:1px solid var(--line);padding:12px;border-radius:9px}.sos-coordinate{font:10px var(--mono);color:var(--muted);margin-top:10px;overflow-wrap:anywhere}.readonly-badge{color:var(--muted);font:9px var(--mono)}.topbar{margin-bottom:24px}.g-help{font:11px var(--sans);color:var(--muted);margin-top:4px}.trip-context{font:11px var(--sans);color:var(--muted);margin-top:8px}.footer-note{font-family:var(--sans)}.bottom-dock{background:#0d0f12f5}.locate-btn,.primary{color:#101115}.sos-btn{background:#3a1118;color:#fff;border-color:#932334}.danger{color:#ff8790!important}.health-row{font-size:12px}.health-row span:last-child{font:11px var(--mono)}.form-note a{color:var(--accent)}.muted{color:var(--muted)}
+@media(max-width:760px){.brand h1{font-size:23px}.brand p{font-size:8px;letter-spacing:1px}.sensor-body{grid-template-columns:130px 1fr;gap:12px}.g-plot{width:130px;height:130px}.shell{padding:19px 16px}.metric{padding:18px}.speed-stage{min-height:245px}.g-values strong{font-size:20px}.trip-stats strong{font-size:20px}.metric-value{font-size:29px}.trip-stats{gap:6px}.clock time{font-size:17px}.clock p{font-size:10px}.vehicle-tag{font-size:10px}.top-right{gap:10px}.icon-button{width:46px;height:46px}.brand-mark{width:42px;height:42px}}
+@media(orientation:landscape) and (max-height:560px){body{padding-bottom:92px}.shell{padding:12px 20px;max-width:1180px}.topbar{margin-bottom:13px}.brand-mark{width:34px;height:34px;font-size:15px}.brand h1{font-size:21px}.brand p{margin-top:4px}.clock time{font-size:17px}.vehicle-line{margin-bottom:12px}.dashboard{grid-template-columns:minmax(0,1.25fr) minmax(265px,1fr);gap:14px}.left-column,.right-column{gap:12px}.speed-stage{min-height:196px;padding-top:27px}.speed-number{font-size:98px}.speed-panel{padding:17px 20px 14px}.speed-unit{margin-top:2px}.speed-source{font-size:10px;margin-top:4px}.gauge{max-width:360px}.journey-status{padding-top:10px}.trip-stats{margin-top:9px;padding-top:10px}.trip-stats strong{font-size:20px}.bottom-dock{padding:10px 20px calc(10px + env(safe-area-inset-bottom))}.locate-btn,.sos-btn{min-height:52px}.guardian-panel,.sensor-panel{padding:16px 20px}.sensor-body{grid-template-columns:118px 1fr;gap:10px}.g-plot{width:118px;height:118px}.g-values strong{font-size:18px}.g-status{font-size:11px;margin-top:8px}.guardian-title{font-size:14px;margin-top:11px}.dpf-steps{margin:12px 0}.guardian-copy{font-size:11px}.top-right .icon-button{width:40px;height:40px}.service-panel{padding:19px}.footer-note{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.dock-coords{max-width:1176px;margin:7px auto 0;text-align:center;font:10px/1.2 var(--mono);color:var(--muted)}
+/* The HUD condenses automatically during an active trip; no driving-time menu action. */
+@media (orientation:landscape) and (max-height:560px){
+ .drive-focus .shell{padding:8px 16px}.drive-focus .topbar{margin-bottom:5px}.drive-focus .brand-mark{width:30px;height:30px}.drive-focus .clock p{display:none}.drive-focus .brand p{font-size:8px}.drive-focus .vehicle-line{margin-bottom:6px}.drive-focus .top-right .icon-button{width:34px;height:34px}.drive-focus .dashboard{position:relative;height:calc(100dvh - 162px);min-height:218px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:minmax(92px,1.6fr) minmax(54px,1fr) minmax(50px,.85fr);gap:7px}
+ .drive-focus .left-column,.drive-focus .right-column{display:contents}.drive-focus .speed-panel{grid-column:1;grid-row:1/4;display:flex;flex-direction:column;padding:9px 15px}.drive-focus .speed-panel .panel-head{flex:none}.drive-focus .speed-stage{flex:1;min-height:105px;padding-top:14px}.drive-focus .speed-number{font-size:80px;line-height:.95;letter-spacing:-6px}.drive-focus .speed-unit{font-size:10px;margin-top:3px}.drive-focus .speed-source{font-size:9px;margin-top:4px}.drive-focus .gauge{max-width:290px}.drive-focus .journey-status{padding-top:5px;gap:6px}.drive-focus .status-orb,.drive-focus .journey-status p,.drive-focus .tracking-toggle,.drive-focus .trip-context{display:none}.drive-focus .subtle-btn{min-height:26px;font-size:10px;padding:3px 8px}.drive-focus .status-copy strong{font-size:11px}.drive-focus .trip-stats{margin-top:6px;padding:5px 0 0}.drive-focus .trip-stats strong{font-size:17px}.drive-focus .trip-stats span{font-size:9px}
+ .drive-focus #g-panel{grid-column:2;grid-row:1;padding:8px 12px}.drive-focus #g-panel .section-title{font-size:12px}.drive-focus .sensor-body{grid-template-columns:66px 1fr;gap:9px}.drive-focus .g-plot{width:66px;height:66px}.drive-focus .g-values strong{font-size:19px}.drive-focus .g-values span{font-size:8px}.drive-focus .g-status{font-size:10px;margin:3px 0 0;min-height:12px}.drive-focus .g-help,.drive-focus #motion-enable{display:none}
+ .drive-focus .metric-grid{grid-column:2;grid-row:2;gap:7px}.drive-focus .metric{padding:7px 12px}.drive-focus .metric-top{font-size:10px;gap:5px}.drive-focus .metric-top .icon{display:none}.drive-focus .metric-value{font-size:20px;margin-top:3px}.drive-focus .metric-bottom{display:none}
+ .drive-focus #diesel-panel{grid-column:2;grid-row:3;padding:7px 12px;display:grid;grid-template-columns:100px 1fr;gap:7px;align-items:center}.drive-focus #diesel-panel .section-title{font-size:11px}.drive-focus #diesel-panel .chip{display:none}.drive-focus .fuel-strip{border:0;padding:0;margin:0;gap:8px}.drive-focus .fuel-strip strong{font-size:17px}.drive-focus .fuel-strip small,.drive-focus .fuel-caption{display:none}
+ .drive-focus .parking-card,.drive-focus .service-panel,.drive-focus .health-panel,.drive-focus #dpf-panel,.drive-focus .footer-note{display:none}.drive-focus .turbo-panel{position:absolute;z-index:2;right:0;top:0;width:calc(100% / 2.15);height:100px;padding:12px;border-radius:15px;display:flex;align-items:center}.drive-focus .turbo-content{gap:10px}.drive-focus .turbo-count{font-size:38px}.drive-focus .turbo-copy strong{font-size:12px}.drive-focus .turbo-copy p{font-size:10px;margin:4px 0 0}.drive-focus .bottom-dock{padding:7px 16px calc(7px + env(safe-area-inset-bottom))}.drive-focus .locate-btn,.drive-focus .sos-btn{min-height:45px;font-size:15px}.drive-focus .notice{padding:6px 10px;font-size:11px;margin:3px 0 5px}.drive-focus .notice .icon{width:14px;height:14px}
+}
+@media (orientation:portrait) and (max-width:760px){
+ .drive-focus .left-column,.drive-focus .right-column{display:contents}.drive-focus .dashboard{gap:10px}.drive-focus .speed-panel{order:0;padding:15px 19px}.drive-focus .speed-stage{min-height:185px;padding-top:23px}.drive-focus .speed-number{font-size:103px}.drive-focus .speed-unit{margin-top:4px;font-size:11px}.drive-focus .speed-source{font-size:10px}.drive-focus .journey-status{padding-top:10px}.drive-focus .status-orb,.drive-focus .journey-status p{display:none}.drive-focus .status-copy strong{font-size:12px}.drive-focus .subtle-btn{min-height:35px;padding:5px 8px;font-size:11px}.drive-focus .trip-stats{margin-top:10px;padding-top:9px}.drive-focus .trip-stats strong{font-size:19px}.drive-focus .trip-context{display:none}.drive-focus .metric-grid{order:1;gap:10px}.drive-focus .metric{padding:11px 15px}.drive-focus .metric-value{font-size:24px;margin-top:6px}.drive-focus .metric-bottom{display:none}.drive-focus #g-panel{order:2;padding:12px 15px}.drive-focus .sensor-body{grid-template-columns:76px 1fr;gap:12px}.drive-focus .g-plot{width:76px;height:76px}.drive-focus .g-values strong{font-size:21px}.drive-focus .g-status{font-size:11px;min-height:16px;margin-top:5px}.drive-focus .g-help,.drive-focus #motion-enable{display:none}.drive-focus #diesel-panel{order:3;padding:11px 15px;display:flex;align-items:center;gap:10px}.drive-focus #diesel-panel .section-title{font-size:12px}.drive-focus #diesel-panel .chip,.drive-focus .fuel-caption{display:none}.drive-focus .fuel-strip{padding:0;margin:0;border:0;flex:1}.drive-focus .fuel-strip strong{font-size:18px}.drive-focus .fuel-strip small{font-size:9px}.drive-focus .parking-card,.drive-focus .service-panel,.drive-focus .health-panel,.drive-focus #dpf-panel,.drive-focus .footer-note{display:none}.drive-focus .turbo-panel{order:1;padding:10px 15px}.drive-focus .turbo-count{font-size:32px}.drive-focus .turbo-copy p{font-size:11px}.drive-focus .dock-coords{font-size:9px}.drive-focus .locate-btn,.drive-focus .sos-btn{min-height:52px}
+}
+
+@media (orientation:landscape) and (max-height:560px){.drive-focus .speed-source{display:none}.drive-focus .speed-stage{padding-top:7px}.drive-focus .speed-number{font-size:84px}}
+@media (orientation:portrait) and (max-height:740px) and (max-width:760px){
+ .drive-focus .shell{padding:10px 12px}.drive-focus .topbar{margin-bottom:12px}.drive-focus .vehicle-line{margin-bottom:9px}.drive-focus .brand-mark{height:34px;width:34px}.drive-focus .brand h1{font-size:21px}.drive-focus .top-right .icon-button{width:38px;height:38px}.drive-focus .vehicle-tag{font-size:9px}.drive-focus .small-status{font-size:9px}.drive-focus .dashboard{gap:7px}.drive-focus .speed-panel{padding:10px 14px}.drive-focus .speed-stage{min-height:105px;padding-top:10px}.drive-focus .speed-number{font-size:73px}.drive-focus .speed-source{display:none}.drive-focus .speed-unit{font-size:9px}.drive-focus .journey-status{padding-top:7px}.drive-focus .status-copy strong{font-size:11px}.drive-focus .subtle-btn{min-height:28px;font-size:10px}.drive-focus .trip-stats{margin-top:7px;padding-top:6px}.drive-focus .trip-stats strong{font-size:17px}.drive-focus .trip-stats span{font-size:9px}.drive-focus .metric{padding:7px 10px}.drive-focus .metric-top{font-size:9px}.drive-focus .metric-top .icon{display:none}.drive-focus .metric-value{font-size:21px;margin-top:4px}.drive-focus #g-panel{padding:7px 12px}.drive-focus #g-panel .section-title{font-size:12px}.drive-focus .g-plot{width:48px;height:48px}.drive-focus .sensor-body{grid-template-columns:48px 1fr;gap:9px}.drive-focus .g-values strong{font-size:17px}.drive-focus .g-values span{font-size:8px}.drive-focus .g-status{font-size:9px;min-height:12px;margin-top:3px}.drive-focus #diesel-panel{padding:8px 12px}.drive-focus .fuel-strip strong{font-size:16px}.drive-focus .fuel-strip small{display:none}.drive-focus .bottom-dock{padding-top:8px}.drive-focus .locate-btn,.drive-focus .sos-btn{min-height:46px}.drive-focus .dock-coords{margin-top:5px}
+}
+</style></head><body>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><defs>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="m10 3-1 3-3 1-3-1-1 3 2 2v2l-2 2 1 3 3-1 3 1 1 3h4l1-3 3-1 3 1 1-3-2-2v-2l2-2-1-3-3 1-3-1-1-3Z"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 5h8a4 4 0 0 1 0 8H9a3 3 0 0 0 0 6h8"/></symbol>
+<symbol id="i-gps" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="m21 3-7 18-4-7-7-4 18-7Z"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="m7 3 3 5-3 3c2 3 3 4 6 6l3-3 5 3-1 4C10 23 1 14 3 4l4-1Z"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5m0 3v1"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1"/></symbol>
+</defs></svg>
+<main class="shell">
+ <header class="topbar">
+  <div class="brand"><div class="brand-mark" aria-hidden="true">RS</div><div><h1>CLIO <em>dCi</em></h1><p>TELEMETRY &amp; GUARDIAN</p></div></div>
+  <div class="top-right"><div class="clock"><time id="clock">—:—</time><p id="date-label">Europe / Athens</p></div><button class="icon-button" id="settings-button" aria-label="Ρυθμίσεις οχήματος και εφαρμογής"><svg class="icon"><use href="#i-settings"/></svg></button></div>
+ </header>
+ <div class="vehicle-line"><span class="vehicle-tag"><strong>CLIO IV · 1.5 dCi</strong> &nbsp;/&nbsp; 2018</span><span class="small-status" id="online-badge"><span class="live-dot"></span>LOCAL TELEMETRY</span></div>
+ <div class="notice" id="notice" hidden role="status"><svg class="icon"><use href="#i-alert"/></svg><p id="notice-text"></p><button id="notice-retry" hidden>Επανάληψη</button></div>
+ <div class="dashboard">
+  <div class="left-column">
+   <section class="panel speed-panel" aria-label="Ταχύτητα GPS και στατιστικά διαδρομής">
+    <div class="panel-head"><span class="eyebrow">LIVE / GPS SPEED</span><span class="gps-chip"><svg class="icon"><use href="#i-gps"/></svg><span id="gps-accuracy">ΑΝΑΖΗΤΗΣΗ GPS</span></span></div>
+    <div class="speed-stage"><svg class="gauge" viewBox="0 0 460 330" aria-hidden="true"><path class="gauge-track" d="M64 280 A183 183 0 1 1 396 280" pathLength="100"/><path class="gauge-active" id="gauge-active" d="M64 280 A183 183 0 1 1 396 280" pathLength="100"/><g class="gauge-ticks"><path d="M74.1 275.7L84.1 271.0 M58.1 209.0L69.1 208.6 M69.4 141.4L79.7 145.3 M106.3 83.5L114.2 91.2 M162.8 44.7L167.1 54.8 M230.0 31.0L230.0 42.0 M297.2 44.7L292.9 54.8 M353.7 83.5L345.8 91.2 M390.6 141.4L380.3 145.3 M401.9 209.0L390.9 208.6 M385.9 275.7L375.9 271.0"/></g></svg><div class="speed-number" id="speed">—</div><div class="speed-unit">KM / H</div><div class="speed-source" id="speed-source">Αναμονή για την πρώτη θέση</div></div>
+    <div class="journey-status"><div class="status-orb"><svg class="icon"><use href="#i-route"/></svg></div><div class="status-copy"><strong id="journey-title">Έτοιμο για διαδρομή</strong><p id="journey-subtitle">Το GPS ξεκινά αυτόματα.</p></div><button class="subtle-btn" id="tracking-toggle">Παύση</button></div>
+    <div class="parking-progress" id="parking-progress" hidden aria-label="Αναμονή αυτόματης στάθμευσης"><div id="parking-progress-fill"></div></div>
+    <div class="trip-stats"><div><span>VMAX</span><strong><b id="vmax">—</b> <small>km/h</small></strong></div><div><span>ΜΕΣΗ</span><strong><b id="avg-speed">—</b> <small>km/h</small></strong></div><div><span>ΟΔΗΓΗΣΗ</span><strong id="drive-time">00:00</strong></div></div>
+    <div id="trip-context" class="trip-context">Αυτόματη έναρξη πάνω από 20 km/h.</div>
+   </section>
+   <section class="panel turbo-panel" id="turbo-panel" hidden role="status"><div class="turbo-content"><div class="turbo-count" id="turbo-seconds">45</div><div class="turbo-copy"><strong>TURBO / Υπενθύμιση αναμονής</strong><p id="turbo-message">45 s μετά από πρόσφατη υψηλή ταχύτητα. Δεν μετρά θερμοκρασία turbo.</p></div></div></section>
+   <div class="metric-grid">
+    <section class="panel metric"><div class="metric-top"><svg class="icon"><use href="#i-sun"/></svg>Χιλιόμετρα σήμερα</div><div class="metric-value"><span id="today-km">0,00</span><small>km</small></div><div class="metric-bottom" id="today-trips">Αυτόματη καταγραφή GPS</div></section>
+    <section class="panel metric"><div class="metric-top"><svg class="icon"><use href="#i-route"/></svg><span id="trip-label">Διαδρομή</span></div><div class="metric-value"><span id="trip-km">0,00</span><small>km</small></div><div class="metric-bottom" id="trip-duration">Αναμονή εκκίνησης</div></section>
+   </div>
+   <section class="panel sensor-panel" id="diesel-panel" aria-labelledby="fuel-title"><div class="panel-head"><h2 class="section-title" id="fuel-title">Diesel &amp; κόστος</h2><span class="chip">ΕΚΤΙΜΗΣΗ</span></div><div class="fuel-strip"><div><strong><span id="fuel-liters">0,00</span> L</strong><small>Καύσιμο διαδρομής</small></div><div><strong><span id="fuel-cost">—</span> €</strong><small>Κόστος διαδρομής</small></div></div><p class="fuel-caption" id="fuel-caption">4,8 L/100 km · όρισε τιμή diesel στις ρυθμίσεις.</p></section>
+   <section class="panel parking-card"><div class="parking-symbol" aria-hidden="true">P</div><div class="parking-info"><h2 id="parking-title">Η θέση του Clio</h2><p id="parking-time">Αποθήκευση αυτόματα μετά τη στάση.</p><p class="coords" id="parking-coords"></p><button class="text-btn" id="save-parking">Αποθήκευση θέσης τώρα</button><button class="text-btn" id="undo-parking" hidden>Αναίρεση στάθμευσης</button></div></section>
+  </div>
+  <aside class="right-column" aria-label="Guardian, αισθητήρες και συντήρηση">
+   <section class="panel guardian-panel" id="dpf-panel"><div class="guardian-head"><h2 class="section-title">DPF Guardian</h2><span class="chip" id="dpf-count">0 / 5</span></div><h3 class="guardian-title" id="dpf-title">Προφίλ μικρών διαδρομών</h3><div class="dpf-steps" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><p class="guardian-copy" id="dpf-copy">Παρακολουθεί συνεχόμενες διαδρομές κάτω από 8 km με μέση ταχύτητα κάτω από 30 km/h.</p><p class="hint">Ένδειξη συνήθειας οδήγησης · φορτίο DPF και RPM δεν μετρώνται.</p></section>
+   <section class="panel sensor-panel" id="g-panel"><div class="panel-head"><h2 class="section-title">G-force vector</h2><span class="readonly-badge">PHONE SENSOR</span></div><div class="sensor-body"><svg class="g-plot" viewBox="0 0 160 160" role="img" aria-label="Διάνυσμα πλευρικής και διαμήκους επιτάχυνσης έως ένα G"><circle class="ring" cx="80" cy="80" r="54"/><circle class="ring" cx="80" cy="80" r="27"/><path class="axis" d="M19 80h122M80 19v122"/><text x="77" y="12">+</text><text x="77" y="154">−</text><text x="4" y="83">L</text><text x="149" y="83">R</text><text x="91" y="37">1G</text><circle class="g-dot" id="g-dot" cx="80" cy="80" r="5" hidden/></svg><div><div class="g-values"><div><strong id="g-lateral">—</strong><span>ΠΛΕΥΡΙΚΑ G</span></div><div><strong id="g-longitudinal">—</strong><span>ΔΙΑΜΗΚΗ G</span></div></div><p class="g-status" id="g-status">Αναμονή αισθητήρα</p></div></div><div class="g-help" id="g-source">Σταθερή βάση · οθόνη προς το πίσω μέρος του οχήματος.</div><button class="text-btn" id="motion-enable">Ενεργοποίηση αισθητήρα όταν σταματήσεις</button></section>
+   <section class="panel service-panel"><div class="panel-head"><h2 class="section-title">Service / 1.5 dCi</h2><span class="eyebrow">REMINDERS</span></div><div class="odo-label">Εκτίμηση συνολικού κοντέρ</div><div class="odo-value"><span id="odometer">—</span> <small>km</small></div><p class="odo-help" id="odo-help">Όρισε μία φορά το πραγματικό κοντέρ.</p>
+    <div class="service-item"><div class="line"><h3>Λάδια &amp; φίλτρο</h3><strong id="oil-remaining">— km</strong></div><div class="bar"><i id="oil-bar"></i></div><p id="oil-note">Όριο υπενθύμισης: 15.000 km</p><p>RN0720 / 5W-30 Low SAPS · επιβεβαίωση ανά κινητήρα</p></div>
+    <div class="service-item"><div class="line"><h3>Φίλτρο πετρελαίου</h3><strong id="fuel-remaining">— km</strong></div><div class="bar"><i id="fuel-bar"></i></div><p id="fuel-note">Όρισε το διάστημα από το βιβλίο συντήρησης.</p></div>
+    <div class="service-item"><div class="line"><h3>Ιμάντας χρονισμού</h3><strong id="belt-remaining">— km</strong></div><div class="bar"><i id="belt-bar"></i></div><p id="belt-note">100.000 km ή 5 έτη · όποιο έρθει πρώτο</p><p id="belt-time-note">Όρισε ημερομηνία τελευταίας αλλαγής.</p></div>
+    <div class="dates-grid"><div class="date-tile"><span>ΚΤΕΟ</span><strong id="kteo-days">—</strong><small id="kteo-date">Πρόσθεσε ημερομηνία</small></div><div class="date-tile"><span>ΑΣΦΑΛΕΙΑ</span><strong id="insurance-days">—</strong><small id="insurance-date">Πρόσθεσε ημερομηνία</small></div></div>
+   </section>
+   <section class="panel health-panel"><h2>Κατάσταση συστήματος</h2><div class="health-row"><span>Καταγραφή GPS</span><span id="health-gps">Αναμονή</span></div><div class="health-row"><span>Οθόνη σε εγρήγορση</span><span id="health-wake">Έλεγχος</span></div><div class="health-row"><span>Αποθήκευση</span><span id="health-storage">Τοπικά</span></div><div class="health-row"><span>Offline επαναφόρτωση</span><span id="health-offline">Χωρίς worker</span></div><p class="sos-coordinate" id="sos-coords">SOS · αναμονή συντεταγμένων</p><p class="hint">Η σελίδα πρέπει να παραμένει ορατή. Ρυθμίσεις πριν την οδήγηση.</p></section>
+  </aside>
+ </div>
+ <footer class="footer-note"><span>GPS &amp; phone sensors · Χωρίς OBD.<br>Ανεξάρτητη εφαρμογή, χωρίς σύνδεση με τη Renault.</span><span>Τα δεδομένα σου<br>μένουν στη συσκευή.</span></footer>
+</main>
+<nav class="bottom-dock" aria-label="Γρήγορες ενέργειες"><div class="dock-inner"><button class="locate-btn" id="locate-car"><svg class="icon"><use href="#i-arrow"/></svg>Πού είναι το Clio;</button><a class="sos-btn" href="tel:112" aria-label="SOS, άνοιγμα τηλεφώνου για το 112"><svg class="icon"><use href="#i-phone"/></svg><span>SOS<small>112</small></span></a></div><div class="dock-coords" id="dock-coords">SOS · αναμονή GPS</div></nav>
+<div id="toast" class="toast" role="status" hidden></div>
+<dialog id="settings-dialog" aria-labelledby="settings-title"><div class="dialog-head"><h2 id="settings-title">Ρυθμίσεις Clio</h2><button class="icon-button" data-close="settings-dialog" aria-label="Κλείσιμο ρυθμίσεων"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="dialog-body">
+ <form id="settings-form"><h3>Κατανάλωση &amp; τιμή diesel</h3><div class="form-grid"><label class="field">Μέση κατανάλωση (L/100 km)<input id="input-consumption" type="number" inputmode="decimal" min="1" max="30" step="0.1" required value="4.8"></label><label class="field">Τιμή πετρελαίου (€/L)<input id="input-price" type="number" inputmode="decimal" min="0.1" max="10" step="0.001"><small>Συμπλήρωσε την τιμή που πληρώνεις.</small></label></div><p>Πρόκειται για εκτίμηση από απόσταση × μέση κατανάλωση. Δεν λαμβάνεται κατανάλωση από τον κινητήρα. Οι νέες τιμές ισχύουν από την επόμενη διαδρομή.</p>
+ <h3>Κοντέρ &amp; συντήρηση</h3><div class="form-grid">
+  <label class="field wide">Πραγματική ένδειξη κοντέρ (km)<input id="input-odo" type="number" inputmode="decimal" min="0" max="2000000" step="0.1"><small>Κενό αν δεν είναι γνωστή. Δεν αντικαθιστά το κοντέρ του αυτοκινήτου.</small></label>
+  <label class="field">Τελευταία λάδια (km)<input id="input-oil" type="number" inputmode="numeric" min="0" max="2000000" step="1"></label><label class="field">Διάστημα λαδιών (km)<input id="input-oil-interval" type="number" inputmode="numeric" min="500" max="100000" step="100" value="15000" required></label>
+  <label class="field">Τελευταίο φίλτρο diesel (km)<input id="input-fuel" type="number" inputmode="numeric" min="0" max="2000000" step="1"></label><label class="field">Διάστημα φίλτρου (km)<input id="input-fuel-interval" type="number" inputmode="numeric" min="1000" max="200000" step="100"><small>Από το πρόγραμμα του οχήματος.</small></label>
+  <label class="field">Τελευταίος ιμάντας (km)<input id="input-belt" type="number" inputmode="numeric" min="0" max="2000000" step="1"></label><label class="field">Διάστημα ιμάντα (km)<input id="input-belt-interval" type="number" inputmode="numeric" min="1000" max="300000" step="100" value="100000" required></label>
+  <label class="field">Ημερομηνία αλλαγής ιμάντα<input id="input-belt-date" type="date"></label><label class="field">Διάστημα ιμάντα (έτη)<input id="input-belt-years" type="number" inputmode="numeric" min="1" max="15" step="1" value="5" required></label>
+  <label class="field">Επόμενο ΚΤΕΟ<input id="input-kteo" type="date"></label><label class="field">Λήξη ασφάλειας<input id="input-insurance" type="date"></label>
+ </div><p class="form-note">Τα 15.000 km, 100.000 km και 5 έτη είναι οι αρχικές υπενθυμίσεις που ζήτησες. Επιβεβαίωσε διαστήματα, χρονικά όρια και έγκριση λαδιού από το πρόγραμμα συντήρησης του συγκεκριμένου VIN. Αν δεν έχει αλλάξει ο ιμάντας, βάλε την ημερομηνία πρώτης κυκλοφορίας και το αρχικό κοντέρ.</p>
+ <label class="check"><input id="input-voice" type="checkbox" checked>Ελληνική εκφώνηση στη στάθμευση</label><p>Η φωνή μπορεί να απαιτεί μία αρχική ενέργεια και εγκατεστημένη ελληνική φωνή. Η αποθήκευση λειτουργεί ανεξάρτητα.</p><div class="button-row"><button class="secondary" type="button" id="voice-test">Δοκιμή φωνής</button><button class="primary" type="submit">Αποθήκευση</button></div><p class="form-error" id="form-error" role="alert"></p></form>
+ <details class="details-group"><summary>Αισθητήρας G &amp; σταθερή βάση</summary><p>Στήριξε το κινητό κατακόρυφα ή υπό κλίση, με την οθόνη στραμμένη προς το πίσω μέρος του οχήματος και ευθυγραμμισμένη με τον διαμήκη άξονά του. Λειτουργεί σε portrait και landscape. Απαιτούνται 2 s σταθερής στάσης με έγκυρη σχεδόν μηδενική ταχύτητα GPS για βαθμονόμηση.</p><p>Στο iPhone η άδεια κίνησης ζητείται με πάτημα. Αν μετακινήσεις τη βάση, πάτησε «Νέα βαθμονόμηση» όταν σταματήσεις. Σε αλλαγή προσανατολισμού ή επιστροφή στη σελίδα γίνεται νέα βαθμονόμηση. Κλίση δρόμου, στροφές της βάσης και αισθητήρες τηλεφώνου επηρεάζουν την ένδειξη.</p><div class="button-row"><button class="secondary" id="motion-permission">Άδεια αισθητήρα G</button><button class="secondary" id="motion-calibrate">Νέα βαθμονόμηση</button></div><p>Αν δεν υπάρχει γραμμική επιτάχυνση, αφαιρείται η βαρύτητα που μετρήθηκε στη βαθμονόμηση και η ένδειξη επισημαίνεται ως εκτίμηση. Το διάγραμμα περιορίζεται σε ±1 G, οι αριθμοί εμφανίζουν ολόκληρη τη μέτρηση.</p></details>
+ <details class="details-group"><summary>Τι γνωρίζουν τα DPF &amp; Turbo Guardian</summary><p>Το DPF Guardian μετρά διαδοχικές, αυτόματα ολοκληρωμένες και πλήρως παρατηρημένες διαδρομές κάτω από 8 km με μέση ταχύτητα κάτω από 30 km/h. Στις 5 εμφανίζει ένδειξη συχνών μικρών διαδρομών. Με κενό GPS, χειροκίνητη λήξη ή διαδρομή εκτός κανόνα ο μετρητής διακόπτεται. Αυτό δεν αποδεικνύει καθαρισμό του DPF.</p><p>Χωρίς OBD δεν υπάρχει μέτρηση αιθάλης, RPM, αναγέννησης ή θερμοκρασίας turbo. Η πρόταση «20 λεπτά πάνω από 2.000 RPM» δεν εκδίδεται ως αυτόματη οδηγία για το συγκεκριμένο όχημα. Αν ανάψει ένδειξη αντιρρύπανσης, ακολούθησε το εγχειρίδιο και επικοινώνησε με συνεργείο.</p><p>Το Turbo Timer είναι υπενθύμιση 45 s στη στάση αν καταγράφηκαν πάνω από 100 km/h στα προηγούμενα 5 λεπτά. Δεν επιβεβαιώνει ότι ο κινητήρας λειτουργεί ή έχει ψυχθεί. Ακυρώνεται όταν αρχίσει κίνηση, χαθεί το GPS ή κρυφτεί η σελίδα. Δεν προτρέπει σε ρελαντί μέσα σε κλειστό χώρο.</p><p><a href="https://www.user-manual.renault.com/el/node/9424" target="_blank" rel="noopener noreferrer">Εγχειρίδιο Renault Clio IV phase 2 — diesel</a></p></details>
+ <details class="details-group"><summary>Εγκατάσταση &amp; offline λειτουργία</summary><p>Όλα τα CSS, JavaScript και εικονίδια βρίσκονται εδώ. Η ήδη ανοιχτή εφαρμογή συνεχίζει χωρίς internet με το διαθέσιμο GPS. Οι χάρτες και μη εγκατεστημένες φωνές μπορεί να χρειάζονται σύνδεση.</p><p><strong>Ένα μοναδικό HTML σε στατικό hosting δεν μπορεί να εγκαταστήσει inline Service Worker.</strong> Για offline επαναφόρτωση από το site χρειάζεται να εξαγάγεις το πλήρες ενσωματωμένο αρχείο worker:</p><ol><li>Ανέβασε το <code>index.html</code> σε HTTPS, π.χ. GitHub Pages.</li><li>Κατέβασε το <code>clio-sw.js</code> και ανέβασέ το δίπλα του.</li><li>Πάτησε «Έλεγχος offline» με ενεργή σύνδεση.</li><li>Πρόσθεσε την εφαρμογή στην αρχική οθόνη από το μενού Chrome ή την «Κοινοποίηση» του Safari, εφόσον προσφέρεται.</li></ol><div class="button-row"><button class="secondary" id="download-worker">Λήψη clio-sw.js</button><button class="secondary" id="check-offline">Έλεγχος offline</button><button class="primary" id="install-button">Προσθήκη στην αρχική</button></div><p class="install-status" id="install-status">Η προσθήκη στην αρχική δεν πιστοποιεί offline επαναφόρτωση.</p><p>Από τοπικό <code>file://</code> το αρχείο ανοίγει χωρίς internet, αλλά GPS, Wake Lock και μόνιμη αποθήκευση εξαρτώνται από τον browser. Για χρήση στο αυτοκίνητο προτίμησε HTTPS. Οι αρχικές άδειες δεν παρακάμπτονται μέσω NFC. Το Wake Lock μπορεί να απορριφθεί ή να ανακληθεί από το λειτουργικό σύστημα.</p></details>
+ <details class="details-group"><summary>Διαδρομές &amp; αντίγραφο ασφαλείας</summary><div id="history-list"></div><div class="button-row"><button class="secondary" id="export-data">Εξαγωγή JSON</button><button class="secondary" id="import-data">Εισαγωγή JSON</button></div><input id="import-file" type="file" accept="application/json,.json" hidden><p>Έως 40 διαδρομές, ημερήσια σύνολα και θέσεις τελευταίας / προηγούμενης στάθμευσης. Δεν καταγράφεται πλήρης διαδρομή GPS. Δεν αποστέλλονται δεδομένα σε server. Η διαγραφή δεδομένων browser αφαιρεί τις εγγραφές· κράτησε αντίγραφο.</p></details>
+ <details class="details-group"><summary>Ακρίβεια GPS &amp; αυτόματη στάθμευση</summary><p>Η διαδρομή αρχίζει πάνω από 20 km/h. Για στάθμευση απαιτούνται πάνω από 60 s φρέσκων μετρήσεων, με native GPS ταχύτητα 0–1 km/h και συνεχή παραμονή στην ίδια περιοχή. Άγνωστη ταχύτητα δεν θεωρείται μηδέν. Παρατεταμένο φανάρι μπορεί να αναγνωριστεί ως στάθμευση: υπάρχει αναίρεση και αυτόματη νέα εκκίνηση.</p><p>Απορρίπτονται ακρίβεια χειρότερη από 35 m, ασυνεπή άλματα και κενά πάνω από 20 s. Η χαμένη απόσταση δεν επινοείται. Ακόμη και σωστά φιλτραρισμένο GPS δεν αντικαθιστά το κοντέρ. Η μέση ταχύτητα χρησιμοποιεί παρατηρημένο χρόνο, χωρίς το τελικό διάστημα επιβεβαίωσης στάθμευσης. «Οδήγηση» είναι ο παρατηρημένος χρόνος κίνησης. Τα ημερήσια σύνολα χρησιμοποιούν Europe/Athens.</p><p>Σήραγγες, κρυφή καρτέλα, κλείδωμα οθόνης και τερματισμός browser διακόπτουν την παρατήρηση. Δεν εκτελείται background GPS μέσα σε Service Worker. Εμφανίζονται συντεταγμένες και αναφερόμενη ακρίβεια αντί για μη επαληθευμένη ταχυδρομική διεύθυνση. Το κουμπί SOS ανοίγει το τηλέφωνο στο 112, χωρίς αυτόματη κλήση ή αποστολή θέσης.</p></details>
+</div></dialog>
+<noscript><p style="padding:24px">Η εφαρμογή απαιτεί ενεργοποιημένη JavaScript.</p></noscript>
+
+<script id="clio-core">
+'use strict';
+(() => {
+  const LIMITS = Object.freeze({accuracy:35,maxGap:20000,maxAge:15000,maxSpeed:75,startKmh:20,stopKmh:1,parkMs:60000,turboMs:45000,turboLookback:300000});
+  const finite = n => typeof n === 'number' && Number.isFinite(n);
+  const clamp = (n,lo,hi) => Math.min(hi,Math.max(lo,n));
+  const radians = n => n*Math.PI/180;
+  function haversine(a,b) {
+    const h=Math.sin(radians(b.lat-a.lat)/2)**2+Math.cos(radians(a.lat))*Math.cos(radians(b.lat))*Math.sin(radians(b.lon-a.lon)/2)**2;
+    return 6371008.8*2*Math.atan2(Math.sqrt(clamp(h,0,1)),Math.sqrt(Math.max(0,1-h)));
+  }
+  const dayFormat=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Athens',year:'numeric',month:'2-digit',day:'2-digit'});
+  function dayKey(t) {const p=Object.fromEntries(dayFormat.formatToParts(new Date(t)).map(x=>[x.type,x.value]));return `${p.year}-${p.month}-${p.day}`;}
+  function dayDistance(meters,from,to) {
+    const a=dayKey(from),b=dayKey(to);if(a===b||to<=from)return {[b]:meters};
+    let l=from,r=to;for(let i=0;i<30;i++){const mid=(l+r)/2;if(dayKey(mid)===a)l=mid;else r=mid;}
+    const fraction=clamp((r-from)/(to-from),0,1);return {[a]:meters*fraction,[b]:meters*(1-fraction)};
+  }
+  function dateDays(value,now) {
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return null;
+    const d=new Date(value+'T00:00:00Z');if(!finite(d.getTime())||d.toISOString().slice(0,10)!==value)return null;
+    return Math.round((d.getTime()-Date.parse(dayKey(now)+'T00:00:00Z'))/86400000);
+  }
+  function anniversary(date,years) {
+    if(dateDays(date,Date.now())===null)return '';
+    const [y,m,d]=date.split('-').map(Number),last=new Date(Date.UTC(y+years,m,0)).getUTCDate();
+    return `${y+years}-${String(m).padStart(2,'0')}-${String(Math.min(d,last)).padStart(2,'0')}`;
+  }
+  function average(trip) {return trip&&trip.observedMs>0?trip.meters*3600/trip.observedMs:null;}
+  function fuel(trip) {const liters=(trip?.meters||0)/100000*(trip?.consumption||4.8);return {liters,cost:finite(trip?.price)?liters*trip.price:null};}
+  // A driving-pattern counter; never a DPF soot/load or regeneration measurement.
+  function dpfStreak(history) {
+    let n=0;for(const t of history){const avg=average(t);if(t.gaps||t.manual||t.meters<=0||t.meters>=8000||avg===null||avg>=30)break;n++;}return n;
+  }
+  class TripEngine {
+    constructor(active=null) {
+      this.active=active?{...active,gaps:true}:null;this.last=null;this.anchor=null;this.stop=null;
+      this.speed=null;this.speedEstimated=false;this.lastValid=0;this.lastSeen=0;this.quality='waiting';this.parked=false;
+      this.highSpeedAt=0;this.turbo=null;
+    }
+    breakContinuity(reason='gap') {
+      this.last=null;this.anchor=null;this.stop=null;this.speed=null;this.quality=reason;this.turbo=null;this.highSpeedAt=0;
+      if(this.active)this.active.gaps=true;
+    }
+    feed(p,now,profile={consumption:4.8,price:null}) {
+      const events=[],c=p&&p.coords;if(!c)return events;
+      const fix={lat:c.latitude,lon:c.longitude,accuracy:c.accuracy,t:p.timestamp};
+      if(!finite(fix.lat)||!finite(fix.lon)||Math.abs(fix.lat)>90||Math.abs(fix.lon)>180||!finite(fix.t)||fix.t>now+3000||now-fix.t>LIMITS.maxAge||!finite(fix.accuracy)||fix.accuracy<0||fix.accuracy>LIMITS.accuracy){this.breakContinuity('poor');return events;}
+      if(fix.t<=this.lastSeen)return events;this.lastSeen=fix.t;
+      let previous=this.last,dt=previous?fix.t-previous.t:0;
+      if(previous&&dt>LIMITS.maxGap){this.breakContinuity('gap');previous=null;dt=0;}
+      const raw=finite(c.speed)&&c.speed>=0&&c.speed<=LIMITS.maxSpeed?c.speed:null;
+      const displacement=previous?haversine(previous,fix):0;
+      if(previous&&dt>0&&displacement>LIMITS.maxSpeed*dt/1000+previous.accuracy+fix.accuracy){this.breakContinuity('jump');return events;}
+      let estimated=null;
+      if(previous&&dt>=1000&&displacement>Math.max(5,(fix.accuracy+previous.accuracy)*.5))estimated=Math.min(LIMITS.maxSpeed,displacement/(dt/1000));
+      this.speed=raw!==null?raw*3.6:estimated!==null?estimated*3.6:null;
+      this.speedEstimated=raw===null&&estimated!==null;this.lastValid=fix.t;this.quality='good';fix.speed=this.speed;
+      const stationary=raw!==null&&raw*3.6<=LIMITS.stopKmh;
+      // Only native GPS speed arms the high-speed rule, and only for five minutes.
+      if(raw!==null&&raw*3.6>100)this.highSpeedAt=fix.t;
+      if(this.turbo&&!stationary)this.turbo=null;
+      if(stationary&&!this.turbo&&this.highSpeedAt&&fix.t-this.highSpeedAt<=LIMITS.turboLookback){
+        this.turbo={startedAt:fix.t,endsAt:fix.t+LIMITS.turboMs};this.highSpeedAt=0;events.push({type:'turbo',at:fix.t});
+      }
+      if(!this.active&&this.speed!==null&&this.speed>LIMITS.startKmh){
+        this.active={id:String(fix.t),startedAt:previous?.t||fix.t,meters:0,gaps:false,lastAt:fix.t,observedMs:0,movingMs:0,vmax:0,consumption:profile.consumption,price:profile.price,manual:false};
+        this.parked=false;this.anchor=previous||fix;events.push({type:'started',at:fix.t});
+      }
+      if(this.active){
+        this.active.lastAt=fix.t;this.active.observedMs+=dt;
+        if(this.speed!==null&&this.speed>LIMITS.stopKmh)this.active.movingMs+=dt;
+        if(this.speed!==null)this.active.vmax=Math.max(this.active.vmax,this.speed);
+        else this.active.gaps=true; // Unknown speed cannot prove a fully observed driving profile.
+        if(stationary){
+          // Include the last observed deceleration segment, but never stationary jitter.
+          if(previous&&previous.speed>LIMITS.stopKmh&&this.anchor){
+            const elapsed=fix.t-this.anchor.t,meters=haversine(this.anchor,fix),threshold=clamp((this.anchor.accuracy+fix.accuracy)/4,3,15);
+            if(elapsed>0&&elapsed<=LIMITS.maxGap&&meters>=threshold&&meters<=LIMITS.maxSpeed*elapsed/1000+fix.accuracy+this.anchor.accuracy){this.active.meters+=meters;events.push({type:'distance',meters,from:this.anchor.t,to:fix.t});}
+          }
+          this.anchor=fix;
+          if(!this.stop||haversine(this.stop.origin,fix)>Math.max(15,this.stop.origin.accuracy+fix.accuracy))this.stop={since:fix.t,origin:fix,best:fix,count:1};
+          else{this.stop.count++;if(fix.accuracy<=this.stop.best.accuracy)this.stop.best=fix;}
+          if(fix.t-this.stop.since>LIMITS.parkMs&&this.stop.count>=7){
+            const parking={lat:this.stop.best.lat,lon:this.stop.best.lon,accuracy:this.stop.best.accuracy,fixAt:this.stop.best.t,savedAt:fix.t,automatic:true};
+            // Remove the final parking confirmation window from trip duration/mean speed.
+            const trip={...this.active,endedAt:this.stop.since,observedMs:Math.max(0,this.active.observedMs-(fix.t-this.stop.since))};
+            events.push({type:'parked',parking,trip});this.active=null;this.stop=null;this.parked=true;this.anchor=fix;
+          }
+        }else{
+          this.stop=null;
+          if(!this.anchor)this.anchor=fix;
+          else if(this.speed!==null&&this.speed>LIMITS.stopKmh){
+            const elapsed=fix.t-this.anchor.t,meters=haversine(this.anchor,fix),threshold=clamp((this.anchor.accuracy+fix.accuracy)/4,3,15);
+            if(elapsed>0&&elapsed<=LIMITS.maxGap&&meters>=threshold&&meters<=LIMITS.maxSpeed*elapsed/1000+fix.accuracy+this.anchor.accuracy){
+              this.active.meters+=meters;events.push({type:'distance',meters,from:this.anchor.t,to:fix.t});this.anchor=fix;
+            }else if(elapsed>LIMITS.maxGap){this.active.gaps=true;this.anchor=fix;}
+          }else this.anchor=fix;
+        }
+      }else this.anchor=fix;
+      this.last=fix;return events;
+    }
+    fresh(now){return this.quality==='good'&&this.lastValid>0&&now-this.lastValid<=LIMITS.maxAge;}
+    stopElapsed(now){return this.stop&&this.fresh(now)?Math.min(LIMITS.parkMs,Math.max(0,this.lastValid-this.stop.since)):0;}
+    turboRemaining(now){return this.turbo&&this.fresh(now)&&this.speed!==null&&this.speed<=LIMITS.stopKmh?Math.max(0,Math.ceil((this.turbo.endsAt-now)/1000)):null;}
+  }
+  const vec=v=>v&&[v.x,v.y,v.z].every(finite)?[v.x,v.y,v.z]:null;
+  const norm=v=>Math.hypot(...v), dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0), scale=(v,k)=>v.map(x=>x*k);
+  const unit=v=>scale(v,1/norm(v));
+  const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+  class MotionEngine {
+    constructor(){this.reset();}
+    reset(){this.axes=null;this.gravity=null;this.bias=null;this.samples=[];this.lastAt=0;this.value=null;this.source='';this.message='Περιμένει στάση για βαθμονόμηση';}
+    feed(event,now,stationary){
+      let g=vec(event.accelerationIncludingGravity),a=vec(event.acceleration);
+      if(!g&&!a){this.value=null;return;}
+      if(this.lastAt&&now-this.lastAt>1500){this.reset();}this.lastAt=now;
+      if(!this.axes){
+        if(!stationary||!g||norm(g)<8||norm(g)>11||(a&&norm(a)>0.35)){this.samples=[];this.message='Βαθμονόμηση στην επόμενη σταθερή στάση';return;}
+        if(this.samples.length&&now-this.samples[this.samples.length-1].t<20)return;
+        this.samples.push({g,a,t:now});while(this.samples.length>150)this.samples.shift();
+        if(this.samples.length<20||now-this.samples[0].t<2000){this.message='Βαθμονόμηση · κράτησε τη βάση ακίνητη';return;}
+        const mean=[0,1,2].map(i=>this.samples.reduce((s,x)=>s+x.g[i],0)/this.samples.length);
+        if(this.samples.some(x=>norm(x.g.map((n,i)=>n-mean[i]))>0.4)){this.samples=[];return;}
+        const up=unit(mean),normal=[0,0,-1],forwardRaw=normal.map((v,i)=>v-dot(normal,up)*up[i]);
+        if(norm(forwardRaw)<0.35){this.samples=[];this.message='Στήριξε το κινητό όρθιο ή υπό κλίση';return;}
+        const forward=unit(forwardRaw),right=unit(cross(forward,up));this.axes={forward,right};this.gravity=mean;
+        const linear=this.samples.filter(s=>s.a);this.bias=linear.length?[0,1,2].map(i=>linear.reduce((s,x)=>s+x.a[i],0)/linear.length):[0,0,0];
+        this.samples=[];this.message='Σχετικές δυνάμεις στη βάση κινητού';
+      }
+      if(a){a=a.map((n,i)=>n-this.bias[i]);this.source='Αισθητήρας χωρίς βαρύτητα';}
+      else if(g){a=g.map((n,i)=>n-this.gravity[i]);this.source='Εκτίμηση με σταθερή βαρύτητα';}
+      else return;
+      // Fixed stationary gravity preserves sustained acceleration; mount pitch/roll changes remain an error source.
+      if(norm(a)>40){this.reset();this.message='Η βάση μετακινήθηκε · απαιτείται νέα στάση';return;}
+      const right=dot(a,this.axes.right)/9.80665,forward=dot(a,this.axes.forward)/9.80665;
+      this.value=this.value?{right:this.value.right*.7+right*.3,forward:this.value.forward*.7+forward*.3}:{right,forward};
+    }
+    fresh(now){return this.value&&now-this.lastAt<1500;}
+  }
+  window.ClioCore=Object.freeze({LIMITS,finite,clamp,haversine,dayKey,dayDistance,dateDays,anniversary,average,fuel,dpfStreak,TripEngine,MotionEngine});
+})();
+
+</script>
+<!-- Optional service worker; export and serve as clio-sw.js over HTTPS. -->
+<script id="clio-worker" type="text/plain">
+'use strict';
+const VERSION='clio-pilot-v1';
+const ROOT=new URL('./',self.location.href);
+const INDEX=new URL('index.html',ROOT).href;
+const CACHE=VERSION+':'+ROOT.pathname;
+const allowed=u=>u.origin===ROOT.origin&&(u.pathname===ROOT.pathname||u.pathname===new URL(INDEX).pathname);
+self.addEventListener('install',event=>{event.waitUntil((async()=>{const response=await fetch(INDEX,{cache:'reload'});if(!response.ok||!response.headers.get('content-type')?.includes('text/html'))throw Error('index.html unavailable');const cache=await caches.open(CACHE);await cache.put(INDEX,response);await self.skipWaiting();})());});
+self.addEventListener('activate',event=>{event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('clio-pilot-')&&k.endsWith(':'+ROOT.pathname)&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim();})());});
+self.addEventListener('fetch',event=>{const u=new URL(event.request.url);if(event.request.method!=='GET'||event.request.mode!=='navigate'||!allowed(u))return;event.respondWith((async()=>{const cache=await caches.open(CACHE);const network=fetch(event.request).then(async response=>{if(response.ok&&response.headers.get('content-type')?.includes('text/html')){await cache.put(INDEX,response.clone());return response;}throw Error('Invalid application response');});const cached=await cache.match(INDEX);if(cached){event.waitUntil(network.catch(()=>{}));return cached;}try{return await network;}catch{return new Response('Clio dCi RS: άνοιξε πρώτα την εφαρμογή με σύνδεση.',{status:503,headers:{'Content-Type':'text/plain; charset=utf-8'}});}})());});
+self.addEventListener('message',event=>{if(event.data?.type!=='CLIO_STATUS'||!event.ports[0])return;event.waitUntil((async()=>{const cache=await caches.open(CACHE);event.ports[0].postMessage({app:'clio-web-pilot',cached:!!(await cache.match(INDEX)),version:VERSION});})());});
+</script>
+<script id="clio-app">
+'use strict';
+(() => {
+ const C=window.ClioCore,$=id=>document.getElementById(id),KEY='clio-web-pilot.v1',LOCK='clio-web-pilot.recorder';
+ const nf=new Intl.NumberFormat('el-GR',{minimumFractionDigits:2,maximumFractionDigits:2});const integer=new Intl.NumberFormat('el-GR',{maximumFractionDigits:0});
+ const timeFmt=new Intl.DateTimeFormat('el-GR',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+ const fullTime=new Intl.DateTimeFormat('el-GR',{timeZone:'Europe/Athens',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});
+ const baseline=()=>({version:1,app:'clio-dci-rs',trackedMeters:0,odoAnchor:null,days:{},parking:null,previousParking:null,history:[],active:null,settings:{oilKm:null,beltKm:null,fuelKm:null,oilInterval:15000,beltInterval:100000,fuelInterval:null,beltDate:'',beltYears:5,kteo:'',insurance:'',consumption:4.8,price:null,voice:true}});
+ let corruptStorage=false;
+ let storageOK=true,storageReason='',state=load(),engine=new C.TripEngine(state.active),watchId=null,wake=null,wakePending=false,wantTracking=true,ownsRecorder=false,releaseRecorder=null,probePending=false,lastProbe=0,installPrompt=null,toastTimer=0,speechTimer=0,speaking=null,offlineReady=false,gpsError='',geoGeneration=0,settingsOpenedOdo=null,dirty=false;
+ const instanceId=globalThis.crypto?.randomUUID?.()||String(Date.now())+'-'+Math.random().toString(36).slice(2);let leaseTimer=null;
+ function bounded(v,min,max){return C.finite(v)&&v>=min&&v<=max;}
+ function validParking(p){return p===null||(p&&bounded(p.lat,-90,90)&&bounded(p.lon,-180,180)&&bounded(p.accuracy,0,100000)&&bounded(p.fixAt,0,9e15)&&bounded(p.savedAt,0,9e15)&&typeof p.automatic==='boolean');}
+ function validate(s){
+  if(!s||s.app!=='clio-dci-rs'||s.version!==1||!bounded(s.trackedMeters,0,1e10)||!s.settings||!s.days||typeof s.days!=='object'||Array.isArray(s.days)||Object.keys(s.days).length>1500||!Array.isArray(s.history)||s.history.length>40||!validParking(s.parking)||!validParking(s.previousParking))return false;
+  if(s.odoAnchor!==null&&(!s.odoAnchor||!bounded(s.odoAnchor.totalKm,0,2000000)||!bounded(s.odoAnchor.atMeters,0,s.trackedMeters)))return false;
+  const a=s.settings;
+  for(const k of ['oilKm','beltKm','fuelKm'])if(a[k]!==null&&!bounded(a[k],0,2000000))return false;
+  if(!bounded(a.oilInterval,500,100000)||!bounded(a.beltInterval,1000,300000)||(a.fuelInterval!==null&&!bounded(a.fuelInterval,1000,200000))||!Number.isInteger(a.beltYears)||!bounded(a.beltYears,1,15)||!bounded(a.consumption,1,30)||(a.price!==null&&!bounded(a.price,.1,10))||typeof a.voice!=='boolean')return false;
+  for(const k of ['kteo','insurance','beltDate'])if(typeof a[k]!=='string'||(a[k]&&C.dateDays(a[k],Date.now())===null))return false;
+  if(!Object.entries(s.days).every(([k,v])=>C.dateDays(k,Date.now())!==null&&bounded(v,0,1e9)))return false;
+  const trip=t=>t&&typeof t.id==='string'&&t.id.length<=80&&bounded(t.startedAt,1,8e15)&&bounded(t.meters,0,1e9)&&typeof t.gaps==='boolean'&&typeof t.manual==='boolean'&&bounded(t.lastAt,t.startedAt,8e15)&&bounded(t.observedMs,0,1e12)&&bounded(t.movingMs,0,1e12)&&bounded(t.vmax,0,270)&&bounded(t.consumption,1,30)&&(t.price===null||bounded(t.price,.1,10));
+  if(s.active!==null&&!trip(s.active))return false;
+  return s.history.every(t=>trip(t)&&bounded(t.endedAt,t.startedAt,8e15));
+ }
+ function load(){
+  try{const raw=localStorage.getItem(KEY);if(!raw)return baseline();let parsed;
+   try{parsed=JSON.parse(raw);}catch{corruptStorage=true;throw Error('CORRUPT');}
+   if(!validate(parsed)){corruptStorage=true;throw Error('CORRUPT');}
+   return parsed;
+  }catch(e){storageOK=false;storageReason=corruptStorage?'Μη αναγνώσιμα αποθηκευμένα δεδομένα. Διατηρούνται ανέπαφα. Εισήγαγε έγκυρο αντίγραφο από τις ρυθμίσεις.':'Η μόνιμη αποθήκευση δεν είναι διαθέσιμη. Τα νέα δεδομένα είναι προσωρινά.';return baseline();}
+ }
+ function persist(){
+  state.active=engine.active?{...engine.active}:null;
+  if(corruptStorage){storageOK=false;return false;}
+  try{localStorage.setItem(KEY,JSON.stringify(state));storageOK=true;dirty=false;return true;}
+  catch(e){storageOK=false;storageReason='Δεν ήταν δυνατή η μόνιμη αποθήκευση. Εξήγαγε αντίγραφο πριν κλείσεις.';dirty=true;return false;}
+ }
+ function totalKm(){return state.odoAnchor?state.odoAnchor.totalKm+(state.trackedMeters-state.odoAnchor.atMeters)/1000:null;}
+ function toast(message){clearTimeout(toastTimer);$('toast').textContent=message;$('toast').hidden=false;toastTimer=setTimeout(()=>$('toast').hidden=true,5500);}
+ function notice(message,retry=false){$('notice-text').textContent=message;$('notice').hidden=!message;$('notice-retry').hidden=!retry;}
+ function duration(ms){const m=Math.floor(Math.max(0,ms)/60000);return m<60?`${m} λεπτά`:`${Math.floor(m/60)} ώρες ${m%60} λεπτά`;}
+ function setText(id,text){if($(id).textContent!==String(text))$(id).textContent=String(text);}
+ function updateService(kind,last,interval){
+  const total=totalKm(),known=total!==null&&last!==null&&interval!==null,remaining=known?last+interval-total:null;
+  const el=$(kind+'-remaining');el.className=remaining!==null&&remaining<=0?'danger':remaining!==null&&remaining<interval*.1?'warning':'';
+  setText(kind+'-remaining',known?(remaining<=0?'Τώρα':integer.format(Math.ceil(remaining))+' km'):'— km');
+  setText(kind+'-note',known?(remaining<0?`Υπέρβαση ${integer.format(Math.ceil(-remaining))} km`:'Απομένουν μέχρι το όριο υπενθύμισης'):interval===null?'Όρισε διάστημα από το πρόγραμμα του οχήματος.':`Όρισε κοντέρ & τελευταίο service · ${integer.format(interval)} km`);
+  const bar=$(kind+'-bar');bar.style.width=known?C.clamp(100*remaining/interval,0,100)+'%':'0%';bar.style.background=remaining!==null&&remaining<=0?'var(--red)':remaining!==null&&remaining<interval*.1?'var(--amber)':'var(--accent)';
+ }
+ function updateDate(id,value){const d=C.dateDays(value,Date.now());setText(id+'-days',d===null?'—':d<0?'Έληξε':d===0?'Σήμερα':`${d} ${d===1?'ημέρα':'ημέρες'}`);$(id+'-days').className=d!==null&&d<0?'danger':d!==null&&d<=30?'warning':'';setText(id+'-date',d===null?'Πρόσθεσε ημερομηνία':value.split('-').reverse().join('/'));}
+ function render(){
+  const now=Date.now(),fresh=engine.fresh(now),speed=fresh?engine.speed:null,moving=speed!==null&&speed>5;
+  document.body.classList.toggle('driving',moving);document.body.classList.toggle('drive-focus',!!engine.active);if(moving&&$('settings-dialog').open)$('settings-dialog').close();
+  setText('clock',timeFmt.format(now));$('clock').dateTime=new Date(now).toISOString();setText('date-label',new Intl.DateTimeFormat('el-GR',{timeZone:'Europe/Athens',weekday:'short',day:'numeric',month:'short'}).format(now));
+  setText('speed',speed===null?'—':Math.round(speed));const gauge=$('gauge-active');gauge.style.strokeDasharray=(speed===null?0:C.clamp(speed/200*100,0,100))+' 100';gauge.style.stroke=speed!==null&&speed>130?'#e20613':speed!==null&&speed>90?'#ff971f':'#fff200';
+  setText('speed-source',!wantTracking?'Η καταγραφή έχει παύσει':fresh?(engine.speedEstimated?'Εκτίμηση από διαδοχικές θέσεις':speed===null?'Το GPS δεν δίνει ταχύτητα':'Ταχύτητα GPS · όχι ένδειξη οχήματος'):'Αναμονή για φρέσκο στίγμα GPS');
+  setText('gps-accuracy',fresh&&engine.last?'± '+Math.round(engine.last.accuracy)+' M':'ΑΝΑΖΗΤΗΣΗ GPS');
+  let title='Έτοιμο για διαδρομή',sub='Αυτόματη έναρξη πάνω από 20 km/h.';
+  if(!wantTracking){title='Η καταγραφή σε παύση';sub='Συνέχισε πριν την επόμενη διαδρομή.';}
+  else if(!ownsRecorder){title='Ανοιχτό σε άλλη καρτέλα';sub='Μόνο μία καρτέλα καταγράφει χιλιόμετρα.';}
+  else if(gpsError){title='Χρειάζεται πρόσβαση GPS';sub='Δες την ειδοποίηση παραπάνω.';}
+  else if(!fresh){title=engine.active?'Προσωρινή απώλεια GPS':'Αναζήτηση θέσης';sub='Δεν προστίθενται χιλιόμετρα χωρίς έγκυρα δεδομένα.';}
+  else if(engine.stop){title='Στάση · έλεγχος στάθμευσης';sub=`${Math.floor(engine.stopElapsed(now)/1000)} / 60 s με φρέσκες μετρήσεις`;}
+  else if(engine.active){title='Η διαδρομή καταγράφεται';sub=engine.active.gaps?'Κενό GPS · η χαμένη απόσταση δεν υπολογίζεται.':'Η στάθμευση αποθηκεύεται αυτόματα.';}
+  else if(engine.parked){title=storageOK?'Το σημείο στάθμευσης αποθηκεύτηκε':'Η θέση διατηρείται προσωρινά';sub='Η νέα διαδρομή θα ξεκινήσει αυτόματα.';}
+  setText('journey-title',title);setText('journey-subtitle',sub);$('parking-progress').hidden=!engine.stop;$('parking-progress-fill').style.width=engine.stopElapsed(now)/C.LIMITS.parkMs*100+'%';setText('tracking-toggle',wantTracking?'Παύση':'Συνέχεια');
+  setText('today-km',nf.format((state.days[C.dayKey(now)]||0)/1000));const count=state.history.filter(t=>C.dayKey(t.endedAt)===C.dayKey(now)).length;setText('today-trips',count?`${count} καταγεγραμμένες διαδρομές`:'Αυτόματη καταγραφή GPS');
+  const trip=engine.active||state.history[0]||null,avg=C.average(trip);
+  setText('trip-label',engine.active?'Τρέχουσα διαδρομή':trip?'Τελευταία διαδρομή':'Διαδρομή');setText('trip-km',nf.format((trip?.meters||0)/1000));
+  setText('trip-duration',trip?duration(trip.observedMs)+(trip.gaps?' · με κενά GPS':' · παρατήρηση'):'Αναμονή εκκίνησης');
+  setText('vmax',trip?Math.round(trip.vmax):'—');setText('avg-speed',avg===null?'—':Math.round(avg));setText('drive-time',clockDuration(trip?.movingMs||0));
+  setText('trip-context',trip?(engine.active?'Τρέχουσα διαδρομή':'Τελευταία διαδρομή')+(trip.gaps?' · ελλιπής παρατήρηση':' · εκτιμήσεις GPS'):'Αυτόματη έναρξη πάνω από 20 km/h.');
+  const diesel=C.fuel(trip||{meters:0,consumption:state.settings.consumption,price:state.settings.price});setText('fuel-liters',nf.format(diesel.liters));setText('fuel-cost',diesel.cost===null?'—':nf.format(diesel.cost));
+  const consumption=trip?trip.consumption:state.settings.consumption,price=trip?trip.price:state.settings.price;
+  setText('fuel-caption',nf.format(consumption)+' L/100 km · '+(price===null?'Όρισε τιμή diesel για την επόμενη διαδρομή.':nf.format(price)+' €/L · τιμές '+(trip?'στην έναρξη της διαδρομής.':'από τις ρυθμίσεις.')));
+  const p=state.parking;setText('parking-title',p?'Τελευταία στάθμευση':'Η θέση του Clio');setText('parking-time',p?`${fullTime.format(p.savedAt)} · ακρίβεια ±${Math.round(p.accuracy)} m`:'Αποθήκευση αυτόματα μετά τη στάση.');setText('parking-coords',p?`${p.lat.toFixed(6)}, ${p.lon.toFixed(6)}`:'');$('save-parking').hidden=false;$('undo-parking').hidden=!p||!p.automatic;
+  const odo=totalKm();setText('odometer',odo===null?'—':integer.format(odo));setText('odo-help',odo===null?'Όρισε μία φορά το πραγματικό κοντέρ.':'Αρχικό κοντέρ + καταγεγραμμένη απόσταση GPS.');
+  for(const kind of ['oil','fuel','belt'])updateService(kind,state.settings[kind+'Km'],state.settings[kind+'Interval']);
+  const beltDue=C.anniversary(state.settings.beltDate,state.settings.beltYears),beltDays=C.dateDays(beltDue,now);
+  setText('belt-time-note',beltDays===null?'Όρισε ημερομηνία αλλαγής · χρονικό όριο '+state.settings.beltYears+' έτη.':beltDays<=0?'Το χρονικό όριο του ιμάντα συμπληρώθηκε.':`${beltDays} ημέρες μέχρι ${beltDue.split('-').reverse().join('/')} · όποιο όριο έρθει πρώτο.`);
+  $('belt-time-note').className=beltDays!==null&&beltDays<=0?'danger':beltDays!==null&&beltDays<=90?'warning':'';
+  if(beltDays!==null&&beltDays<=0){setText('belt-remaining','Έλεγχος τώρα');$('belt-remaining').className='danger';}
+  updateDate('kteo',state.settings.kteo);updateDate('insurance',state.settings.insurance);
+  setText('health-gps',!wantTracking?'Σε παύση':!ownsRecorder?'Άλλη καρτέλα':fresh?'Ενεργό':'Αναμονή σήματος');setText('health-storage',storageOK?'Τοπικά στη συσκευή':'Μόνο προσωρινά');$('health-storage').className=storageOK?'':'warning';setText('health-offline',offlineReady?'Έτοιμη':location.protocol==='file:'?'Τοπικό αρχείο':'Χωρίς worker');
+  setText('sos-coords',fresh&&engine.last?`SOS · ${engine.last.lat.toFixed(6)}, ${engine.last.lon.toFixed(6)} · ±${Math.round(engine.last.accuracy)} m`:'SOS · δεν υπάρχει φρέσκο στίγμα GPS');
+  setText('online-badge',navigator.onLine?'● LOCAL TELEMETRY':'● ΧΩΡΙΣ INTERNET');setText('dock-coords',fresh&&engine.last?`${engine.last.lat.toFixed(5)}, ${engine.last.lon.toFixed(5)} · ±${Math.round(engine.last.accuracy)} m`:'Δεν υπάρχει φρέσκο στίγμα GPS');
+  renderGuardians(now);renderMotion();if(!storageOK)notice(storageReason);
+ }
+ function applyEvents(events){
+  for(const e of events){
+   if(e.type==='distance'){state.trackedMeters+=e.meters;for(const [key,meters]of Object.entries(C.dayDistance(e.meters,e.from,e.to)))state.days[key]=(state.days[key]||0)+meters;}
+   else if(e.type==='started')requestWake();
+   else if(e.type==='parked'){
+    state.previousParking=state.parking;state.parking=e.parking;state.history.unshift(e.trip);state.history=state.history.slice(0,40);
+    const saved=persist();toast(saved?'Η στάθμευση του Clio αποθηκεύτηκε.':'Η στάθμευση είναι προσωρινή: αποτυχία αποθήκευσης.');
+    if(saved)speak('Η διαδρομή ολοκληρώθηκε. Το σημείο στάθμευσης του Clio αποθηκεύτηκε');
+   }
+  }
+  const keys=Object.keys(state.days).sort();while(keys.length>1096)delete state.days[keys.shift()];dirty=true;persist();
+ }
+ function positionReceived(position){
+  if(!wantTracking||!ownsRecorder||document.visibilityState!=='visible')return;
+  const events=engine.feed(position,Date.now(),state.settings);if(engine.quality==='good'){gpsError='';if(storageOK)notice('');}
+  applyEvents(events);render();
+ }
+ function positionError(error){if(!wantTracking)return;engine.breakContinuity('error');if(error.code===1){gpsError='permission';notice('Χρειάζεται άδεια τοποθεσίας για αυτό το site. Επίλεξε «Να επιτρέπεται» στις ρυθμίσεις του browser.',true);stopWatch();}else if(error.code===2){gpsError='unavailable';notice('Το GPS δεν είναι διαθέσιμο. Έλεγξε την τοποθεσία της συσκευής και την ορατότητα προς τον ουρανό.',true);}else{gpsError='timeout';notice('Αναμονή σήματος GPS. Η αναζήτηση συνεχίζεται χωρίς να προστίθενται άγνωστα χιλιόμετρα.',true);}persist();render();}
+ function stopWatch(){geoGeneration++;if(watchId!==null&&navigator.geolocation){navigator.geolocation.clearWatch(watchId);watchId=null;}probePending=false;}
+ function startWatch(){if(!ownsRecorder||!wantTracking||watchId!==null||document.visibilityState!=='visible')return;if(!navigator.geolocation){gpsError='unsupported';notice('Αυτός ο browser δεν διαθέτει Geolocation API.');render();return;}if(!window.isSecureContext&&location.protocol!=='file:'){gpsError='https';notice('Άνοιξε την εφαρμογή από HTTPS, π.χ. GitHub Pages, για πρόσβαση στο GPS.');render();return;}const generation=++geoGeneration;try{watchId=navigator.geolocation.watchPosition(p=>{if(generation===geoGeneration)positionReceived(p);},e=>{if(generation===geoGeneration)positionError(e);},{enableHighAccuracy:true,maximumAge:0,timeout:20000});}catch(e){positionError({code:1});}requestWake();}
+ function probe(){if(probePending||!wantTracking||!ownsRecorder||!engine.stop||document.visibilityState!=='visible'||Date.now()-lastProbe<8000)return;probePending=true;lastProbe=Date.now();const generation=geoGeneration;navigator.geolocation.getCurrentPosition(p=>{if(generation!==geoGeneration)return;probePending=false;positionReceived(p);},()=>{if(generation!==geoGeneration)return;probePending=false;engine.breakContinuity('gap');persist();render();},{enableHighAccuracy:true,maximumAge:0,timeout:12000});}
+ async function requestWake(){if(!wantTracking||!ownsRecorder||document.visibilityState!=='visible'||wakePending||wake&&!wake.released)return;if(!navigator.wakeLock){setText('health-wake','Μη διαθέσιμη');return;}wakePending=true;try{const lock=await navigator.wakeLock.request('screen');if(!wantTracking||!ownsRecorder||document.visibilityState!=='visible'){await lock.release();return;}wake=lock;setText('health-wake','Ενεργή');lock.addEventListener('release',()=>{if(wake===lock)wake=null;setText('health-wake','Αποδεσμεύτηκε');});}catch(e){setText('health-wake','Δεν επιτράπηκε');}finally{wakePending=false;}}
+ async function releaseWake(){if(wake){const w=wake;wake=null;try{await w.release();}catch(e){}}setText('health-wake','Σε παύση');}
+ function synthVoices(){try{return speechSynthesis.getVoices().filter(v=>/^el(?:-|_|$)/i.test(v.lang));}catch(e){return [];}}
+ function speak(text,force=false){if(!force&&!state.settings.voice)return;if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)){if(force)toast('Ο browser δεν υποστηρίζει φωνητική εκφώνηση.');return;}const voices=synthVoices();if(!voices.length){toast('Δεν βρέθηκε ελληνική φωνή. Η θέση αποθηκεύεται κανονικά.');return;}clearTimeout(speechTimer);speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.lang='el-GR';utterance.voice=voices.find(v=>v.localService)||voices[0];utterance.rate=.95;utterance.volume=1;speaking=utterance;utterance.onstart=()=>clearTimeout(speechTimer);utterance.onend=()=>{speaking=null;};utterance.onerror=()=>{clearTimeout(speechTimer);speaking=null;toast('Η φωνή δεν επιτράπηκε. Δοκίμασέ τη από τις ρυθμίσεις όταν σταματήσεις.');};speechSynthesis.speak(utterance);speechTimer=setTimeout(()=>{if(speaking===utterance){speechSynthesis.cancel();speaking=null;toast('Η εκφώνηση δεν ξεκίνησε. Η αποθήκευση παραμένει ενεργή.');}},5000);}
+ function guarded(){if(!ownsRecorder){toast('Οι αλλαγές γίνονται από την καρτέλα που καταγράφει.');return false;}if(engine.fresh(Date.now())&&engine.speed!==null&&engine.speed>5){toast('Άνοιξε τις ρυθμίσεις όταν σταματήσεις με ασφάλεια.');return false;}return true;}
+ function showSettings(){
+  if(!guarded())return;settingsOpenedOdo=totalKm();$('input-odo').value=settingsOpenedOdo===null?'':settingsOpenedOdo.toFixed(1);
+  for(const kind of ['oil','belt','fuel']){$('input-'+kind).value=state.settings[kind+'Km']??'';$('input-'+kind+'-interval').value=state.settings[kind+'Interval']??'';}
+  for(const key of ['kteo','insurance','consumption','price'])$('input-'+key).value=state.settings[key]??'';
+  $('input-belt-date').value=state.settings.beltDate;$('input-belt-years').value=state.settings.beltYears;$('input-voice').checked=state.settings.voice;
+  $('form-error').textContent='';renderHistory();$('settings-dialog').showModal();
+ }
+ function renderHistory(){
+  const list=$('history-list');list.replaceChildren();
+  if(!state.history.length){const p=document.createElement('p');p.textContent='Οι ολοκληρωμένες διαδρομές θα εμφανιστούν εδώ.';list.append(p);return;}
+  for(const trip of state.history){
+   const row=document.createElement('div');row.className='trip-row';const left=document.createElement('span');left.textContent=fullTime.format(trip.startedAt);
+   const small=document.createElement('small'),avg=C.average(trip),cost=C.fuel(trip).cost;
+   small.textContent=duration(trip.observedMs)+' · '+(avg===null?'—':Math.round(avg))+' km/h'+(trip.gaps?' · κενά GPS':trip.manual?' · χειροκίνητη λήξη':'');left.append(small);
+   const right=document.createElement('strong');right.textContent=nf.format(trip.meters/1000)+' km';const estimate=document.createElement('small');estimate.textContent=cost===null?'— €':nf.format(cost)+' € εκτίμηση';right.append(estimate);row.append(left,right);list.append(row);
+  }
+ }
+ function settingsSubmit(event){
+  event.preventDefault();if(!guarded())return;const num=id=>$(id).value.trim()===''?null:Number($(id).value);
+  const odo=num('input-odo'),oil=num('input-oil'),belt=num('input-belt'),fuelKm=num('input-fuel'),oi=num('input-oil-interval'),bi=num('input-belt-interval'),fi=num('input-fuel-interval'),years=num('input-belt-years'),consumption=num('input-consumption'),price=num('input-price');
+  let error='';
+  if(odo!==null&&!bounded(odo,0,2000000))error='Έλεγξε την ένδειξη κοντέρ.';
+  else if([oil,belt,fuelKm].some(v=>v!==null)&&odo===null)error='Συμπλήρωσε το κοντέρ για τις χιλιομετρικές υπενθυμίσεις.';
+  else if([oil,belt,fuelKm].some(v=>v!==null&&(!bounded(v,0,2000000)||v>odo)))error='Τα τελευταία service δεν μπορεί να είναι μετά το τρέχον κοντέρ.';
+  else if(!bounded(oi,500,100000)||!bounded(bi,1000,300000)||(fi!==null&&!bounded(fi,1000,200000))||!Number.isInteger(years)||!bounded(years,1,15))error='Έλεγξε τα διαστήματα συντήρησης.';
+  else if(!bounded(consumption,1,30)||(price!==null&&!bounded(price,.1,10)))error='Έλεγξε την κατανάλωση και την τιμή diesel.';
+  else if(['input-kteo','input-insurance','input-belt-date'].some(id=>$(id).value&&C.dateDays($(id).value,Date.now())===null))error='Έλεγξε τις ημερομηνίες.';
+  else if($('input-belt-date').value&&C.dateDays($('input-belt-date').value,Date.now())>0)error='Η τελευταία αλλαγή ιμάντα δεν μπορεί να είναι στο μέλλον.';
+  if(error){$('form-error').textContent=error;return;}
+  const original=settingsOpenedOdo===null?'':settingsOpenedOdo.toFixed(1);if($('input-odo').value!==original)state.odoAnchor=odo===null?null:{totalKm:odo,atMeters:state.trackedMeters};
+  state.settings={oilKm:oil,beltKm:belt,fuelKm,oilInterval:oi,beltInterval:bi,fuelInterval:fi,beltDate:$('input-belt-date').value,beltYears:years,kteo:$('input-kteo').value,insurance:$('input-insurance').value,consumption,price,voice:$('input-voice').checked};
+  const saved=persist();$('settings-dialog').close();render();toast(saved?'Οι ρυθμίσεις αποθηκεύτηκαν.':'Οι αλλαγές παραμένουν προσωρινές: αποτυχία αποθήκευσης.');
+ }
+ function saveParkingManually(){
+  if(!guarded())return;
+  if(!engine.last||!engine.fresh(Date.now())||engine.speed===null||engine.speed>C.LIMITS.stopKmh){toast('Απαιτείται φρέσκο GPS με ένδειξη στάσης για αποθήκευση.');return;}
+  const f=engine.last;state.previousParking=state.parking;state.parking={lat:f.lat,lon:f.lon,accuracy:f.accuracy,fixAt:f.t,savedAt:Date.now(),automatic:false};
+  if(engine.active){state.history.unshift({...engine.active,endedAt:Date.now(),manual:true});state.history=state.history.slice(0,40);engine.active=null;}
+  engine.stop=null;engine.parked=true;engine.anchor=f;const saved=persist();render();toast(saved?'Η θέση του Clio αποθηκεύτηκε.':'Η θέση είναι προσωρινή: αποτυχία αποθήκευσης.');
+ }
+ function download(name,text,type){const url=URL.createObjectURL(new Blob([text],{type}));const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
+ function setupManifest(){
+  const base=new URL('./',location.href),start=new URL('index.html',base),canvas=document.createElement('canvas');canvas.width=canvas.height=512;
+  const x=canvas.getContext('2d');let icon='',smallIcon='';
+  if(x){x.fillStyle='#0d0f12';x.fillRect(0,0,512,512);x.fillStyle='#fff200';x.fillRect(72,96,368,320);x.fillStyle='#0d0f12';x.font='italic 900 165px monospace';x.textAlign='center';x.fillText('RS',256,302);x.font='bold 28px monospace';x.fillText('CLIO dCi',256,356);icon=canvas.toDataURL('image/png');const small=document.createElement('canvas');small.width=small.height=192;const sx=small.getContext('2d');if(sx){sx.drawImage(canvas,0,0,192,192);smallIcon=small.toDataURL('image/png');}}
+  const manifest={id:start.href,name:'Clio dCi RS Telemetry & Guardian',short_name:'Clio RS',description:'Τοπικό GPS ταμπλό, στάθμευση, εκτίμηση diesel και συντήρηση',lang:'el',start_url:start.href,scope:base.href,display:'standalone',background_color:'#0d0f12',theme_color:'#0d0f12',icons:icon?[{src:icon,sizes:'512x512',type:'image/png',purpose:'any maskable'},...(smallIcon?[{src:smallIcon,sizes:'192x192',type:'image/png',purpose:'any maskable'}]:[])]:[]};
+  $('app-manifest').href='data:application/manifest+json;charset=utf-8,'+encodeURIComponent(JSON.stringify(manifest));if(icon){$('app-icon').href=icon;$('apple-icon').href=icon;}
+ }
+ async function workerStatus(reg){const sw=reg.active;if(!sw)return false;return new Promise(resolve=>{const channel=new MessageChannel();const timer=setTimeout(()=>{channel.port1.close();resolve(false);},2500);channel.port1.onmessage=e=>{clearTimeout(timer);channel.port1.close();resolve(e.data?.app==='clio-web-pilot'&&e.data.cached===true);};sw.postMessage({type:'CLIO_STATUS'},[channel.port2]);});}
+ async function offlineCheck(install=false){if(!('serviceWorker'in navigator)||!window.isSecureContext||!/^https?:$/.test(location.protocol)){setText('install-status','Η εγκατάσταση worker χρειάζεται HTTPS και υποστηριζόμενο browser.');return;}const url=new URL('clio-sw.js',location.href);try{let reg=await navigator.serviceWorker.getRegistration(new URL('./',url).href);if(reg&&reg.active&&new URL(reg.active.scriptURL).pathname!==url.pathname){setText('install-status','Υπάρχει άλλος worker σε αυτό το site. Χρησιμοποίησε ξεχωριστό φάκελο για το Clio.');return;}if(!reg&&install){const response=await fetch(url,{cache:'no-store'});if(!response.ok||!/(javascript|ecmascript)/i.test(response.headers.get('content-type')||''))throw Error('MISSING_WORKER');const text=await response.text();if(!text.includes("clio-pilot-v1"))throw Error('WRONG_WORKER');reg=await navigator.serviceWorker.register(url.href,{scope:new URL('./',url).href});await Promise.race([navigator.serviceWorker.ready,new Promise((_,reject)=>setTimeout(()=>reject(Error('TIMEOUT')),10000))]);}offlineReady=!!reg&&await workerStatus(reg);setText('install-status',offlineReady?'Η σελίδα έχει αποθηκευτεί για offline επαναφόρτωση. Δοκίμασέ τη χωρίς σύνδεση πριν τη διαδρομή.':'Δεν έχει εγκατασταθεί worker. Ανέβασε το clio-sw.js δίπλα στο index.html και επανάλαβε.');}catch(e){offlineReady=false;setText('install-status','Ο worker δεν βρέθηκε ή δεν εγκαταστάθηκε. Έλεγξε το clio-sw.js στον ίδιο φάκελο HTTPS.');}render();}
+ function takeState(){state=load();if(state.active&&Date.now()-state.active.lastAt>4*3600000){state.history.unshift({...state.active,endedAt:state.active.lastAt,gaps:true});state.history=state.history.slice(0,40);state.active=null;}engine=new C.TripEngine(state.active);ownsRecorder=true;startWatch();render();}
+ async function acquireRecorder(){if(navigator.locks){try{await navigator.locks.request(LOCK,{ifAvailable:true},async lock=>{if(!lock){ownsRecorder=false;render();setTimeout(()=>{if(!ownsRecorder&&document.visibilityState==='visible')acquireRecorder();},4000);return;}takeState();await new Promise(resolve=>{releaseRecorder=resolve;});ownsRecorder=false;});return;}catch(e){}}
+  // Fallback for older browsers: a renewable lease. Web Locks is preferred.
+  function claim(){if(document.visibilityState!=='visible')return;try{const old=JSON.parse(localStorage.getItem(LOCK)||'null');if(old&&old.id!==instanceId&&Date.now()-old.at<12000){if(ownsRecorder){stopWatch();releaseWake();ownsRecorder=false;}render();return;}localStorage.setItem(LOCK,JSON.stringify({id:instanceId,at:Date.now()}));if(!ownsRecorder)takeState();}catch(e){if(!ownsRecorder)takeState();storageOK=false;storageReason='Η αποθήκευση δεν είναι διαθέσιμη. Χρησιμοποίησε μία μόνο καρτέλα.';}}
+  claim();if(!leaseTimer)leaseTimer=setInterval(claim,4000);
+ }
+ function init(){
+  setupManifest();setupMotion();$('settings-button').addEventListener('click',showSettings);document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>$(b.dataset.close).close()));
+  $('settings-form').addEventListener('submit',settingsSubmit);$('voice-test').addEventListener('click',()=>speak('Το Clio είναι έτοιμο για τη διαδρομή.',true));
+  $('tracking-toggle').addEventListener('click',()=>{if(!ownsRecorder){toast('Η καταγραφή είναι ενεργή σε άλλη καρτέλα.');return;}wantTracking=!wantTracking;engine.breakContinuity('paused');motion.reset();if(wantTracking){gpsError='';startWatch();}else{stopWatch();releaseWake();}persist();render();});
+  $('notice-retry').addEventListener('click',()=>{gpsError='';stopWatch();startWatch();});$('save-parking').addEventListener('click',saveParkingManually);
+  $('undo-parking').addEventListener('click',()=>{if(!guarded()||!state.parking)return;state.parking=state.previousParking;state.previousParking=null;engine.parked=false;persist();render();toast('Η προηγούμενη θέση αποκαταστάθηκε. Τα χιλιόμετρα διατηρούνται.');});
+  $('locate-car').addEventListener('click',()=>{const p=state.parking;if(!p){toast('Δεν υπάρχει ακόμη αποθηκευμένη θέση στάθμευσης.');return;}location.href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(p.lat+','+p.lon)+'&travelmode=walking&dir_action=navigate';});
+  $('download-worker').addEventListener('click',()=>download('clio-sw.js',$('clio-worker').textContent,'text/javascript;charset=utf-8'));
+  $('check-offline').addEventListener('click',()=>offlineCheck(true));
+  $('install-button').addEventListener('click',async()=>{if(installPrompt){try{await installPrompt.prompt();await installPrompt.userChoice;}catch{toast('Χρησιμοποίησε το μενού εγκατάστασης του browser.');}installPrompt=null;}else toast(/iPad|iPhone|iPod/.test(navigator.userAgent)?'Safari: Κοινοποίηση → Προσθήκη στην αρχική οθόνη.':'Chrome: μενού ⋮ → Προσθήκη στην αρχική οθόνη ή Εγκατάσταση.');});
+  $('export-data').addEventListener('click',()=>{if(ownsRecorder)persist();download('clio-backup-'+C.dayKey(Date.now())+'.json',JSON.stringify(state,null,2),'application/json');});
+  $('import-data').addEventListener('click',()=>{if(guarded())$('import-file').click();});
+  $('import-file').addEventListener('change',async event=>{
+   const file=event.target.files[0];event.target.value='';if(!file||!guarded())return;
+   try{if(file.size>1024*1024)throw Error();const imported=JSON.parse(await file.text());if(!validate(imported))throw Error();if(!guarded())return;
+    if(!confirm('Το αντίγραφο θα αντικαταστήσει τα τωρινά δεδομένα Clio. Συνέχεια;'))return;
+    state=imported;corruptStorage=false;engine=new C.TripEngine(state.active);motion.reset();const saved=persist();$('settings-dialog').close();render();toast(saved?'Το αντίγραφο εισήχθη.':'Το αντίγραφο φορτώθηκε προσωρινά: αποτυχία αποθήκευσης.');
+   }catch{toast('Το αρχείο δεν είναι έγκυρο αντίγραφο Clio dCi RS.');}
+  });
+  window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;});window.addEventListener('appinstalled',()=>{installPrompt=null;toast('Η εφαρμογή προστέθηκε στην αρχική οθόνη.');});
+  window.addEventListener('online',()=>render());window.addEventListener('offline',()=>{toast('Χωρίς internet. Η ανοιχτή σελίδα συνεχίζει με το διαθέσιμο GPS.');render();});
+  document.addEventListener('visibilitychange',()=>{motion.reset();if(document.visibilityState==='hidden'){if(ownsRecorder){engine.breakContinuity('hidden');persist();stopWatch();}releaseWake();}else if(ownsRecorder){startWatch();requestWake();render();}else acquireRecorder();});
+  window.addEventListener('pagehide',()=>{if(ownsRecorder){engine.breakContinuity('hidden');persist();stopWatch();}releaseWake();if(releaseRecorder){releaseRecorder();releaseRecorder=null;}try{const lease=JSON.parse(localStorage.getItem(LOCK)||'null');if(lease?.id===instanceId)localStorage.removeItem(LOCK);}catch{}});
+  window.addEventListener('pageshow',event=>{if(event.persisted)acquireRecorder();});window.addEventListener('storage',event=>{if(event.key===KEY&&!ownsRecorder){state=load();render();}});
+  setInterval(()=>{
+   if(document.visibilityState!=='visible')return;
+   if(engine.lastValid&&Date.now()-engine.lastValid>C.LIMITS.maxAge&&engine.quality==='good'){engine.breakContinuity('stale');if(ownsRecorder)persist();}
+   probe();render();
+  },1000);
+  setInterval(()=>{if(document.visibilityState==='visible')renderMotion();},100);
+  document.addEventListener('pointerdown',()=>{if(wantTracking&&ownsRecorder)requestWake();},{passive:true});
+  render();acquireRecorder();offlineCheck(false);
+ }
+ 
+ const motion=new C.MotionEngine();let motionStarted=false,motionPermission='waiting';
+ function clockDuration(ms){const s=Math.floor(Math.max(0,ms)/1000),h=Math.floor(s/3600),m=Math.floor(s/60)%60;return h?`${h}:${String(m).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`:`${String(m).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;}
+ function renderGuardians(now){
+  const streak=C.dpfStreak(state.history),warning=streak>=5;if(warning)setText('online-badge','⚠ DPF · '+streak+'/5');$('dpf-panel').classList.toggle('attention',warning);setText('dpf-count',streak+' / 5');
+  setText('dpf-title',warning?'Συχνές μικρές διαδρομές':'Προφίλ μικρών διαδρομών');
+  setText('dpf-copy',warning?'Ένδειξη χρήσης που μπορεί να δυσκολεύει την αναγέννηση. Δεν έχει μετρηθεί φορτίο DPF. Ακολούθησε το εγχειρίδιο του οχήματος για ενέργειες.':streak?`${streak} συνεχόμενες διαδρομές κάτω από 8 km και μέση ταχύτητα κάτω από 30 km/h.`:'Παρακολουθεί συνεχόμενες διαδρομές κάτω από 8 km με μέση ταχύτητα κάτω από 30 km/h.');
+  document.querySelectorAll('.dpf-steps i').forEach((el,i)=>el.classList.toggle('on',i<streak));
+  const seconds=engine.turboRemaining(now);$('turbo-panel').hidden=seconds===null||seconds===0;
+  if(seconds!==null&&seconds>0){setText('turbo-seconds',seconds);setText('turbo-message','Αναμονή πριν το σβήσιμο, μόνο αν είναι ασφαλές. Χρονική υπενθύμιση · δεν μετρά θερμοκρασία turbo.');}
+ }
+ function setupMotion(){
+  $('motion-enable').addEventListener('click',enableMotion);$('motion-permission').addEventListener('click',enableMotion);
+  $('motion-calibrate').addEventListener('click',()=>{if(!guarded())return;motion.reset();toast('Θα βαθμονομηθεί στην επόμενη σταθερή στάση με έγκυρο GPS.');});
+  const rotated=()=>motion.reset();if(screen.orientation?.addEventListener)screen.orientation.addEventListener('change',rotated);else window.addEventListener('orientationchange',rotated);
+  if(!window.DeviceMotionEvent){motionPermission='unavailable';return;}
+  if(typeof DeviceMotionEvent.requestPermission==='function')motionPermission='required';else startMotion();
+ }
+ async function enableMotion(){
+  if(!guarded())return;if(!window.DeviceMotionEvent){toast('Δεν υποστηρίζεται αισθητήρας κίνησης από τον browser.');return;}
+  try{if(typeof DeviceMotionEvent.requestPermission==='function'){const result=await DeviceMotionEvent.requestPermission();if(result!=='granted'){motionPermission='denied';renderMotion();return;}}startMotion();motion.reset();toast('Ο αισθητήρας ενεργοποιήθηκε. Περίμενε 2 s σταθερής στάσης με GPS.');}
+  catch{motionPermission='denied';toast('Η άδεια αισθητήρα δεν επιτράπηκε. Έλεγξε τις ρυθμίσεις browser.');}renderMotion();
+ }
+ function startMotion(){
+  motionPermission='granted';if(motionStarted)return;motionStarted=true;
+  window.addEventListener('devicemotion',event=>{
+   if(!ownsRecorder||!wantTracking||document.visibilityState!=='visible')return;
+   const stationary=engine.fresh(Date.now())&&engine.speed!==null&&!engine.speedEstimated&&engine.speed<=C.LIMITS.stopKmh;
+   motion.feed(event,performance.now(),stationary);
+  },{passive:true});
+ }
+ function renderMotion(){
+  const ready=ownsRecorder&&wantTracking&&motion.fresh(performance.now());$('g-dot').hidden=!ready;
+  if(ready){const v=motion.value;setText('g-lateral',v.right.toFixed(2));setText('g-longitudinal',v.forward.toFixed(2));$('g-dot').setAttribute('cx',80+C.clamp(v.right,-1,1)*54);$('g-dot').setAttribute('cy',80-C.clamp(v.forward,-1,1)*54);setText('g-status',motion.message);setText('g-source',motion.source+' · σχετική μέτρηση στη βάση.');}
+  else{setText('g-lateral','—');setText('g-longitudinal','—');let status=motionPermission==='required'?'Απαιτείται αρχική άδεια αισθητήρα':motionPermission==='denied'?'Η άδεια κίνησης δεν επιτράπηκε':motionPermission==='unavailable'?'Μη διαθέσιμος αισθητήρας':!ownsRecorder?'Η καταγραφή γίνεται σε άλλη καρτέλα':motion.lastAt&&performance.now()-motion.lastAt>=1500?'Δεν λαμβάνονται φρέσκα δεδομένα':motion.message;setText('g-status',status);}
+  $('motion-enable').hidden=motionPermission==='granted'||motionPermission==='unavailable';
+ }
+
+ window.addEventListener('load',init,{once:true});
+})();
+</script></body></html>
